@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9E59362-4071-4A13-8C02-0E05D5FC90E4}|HomeWork13_2\\HomeWork13_2.csproj|c:\\github\\c-\\\u0434\u0437\\12 homework\\homework13_2\\ui\\ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9E59362-4071-4A13-8C02-0E05D5FC90E4}|HomeWork13_2\\HomeWork13_2.csproj|solutionrelative:homework13_2\\ui\\ui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9E59362-4071-4A13-8C02-0E05D5FC90E4}|HomeWork13_2\\HomeWork13_2.csproj|c:\\github\\c-\\\u0434\u0437\\12 homework\\homework13_2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9E59362-4071-4A13-8C02-0E05D5FC90E4}|HomeWork13_2\\HomeWork13_2.csproj|solutionrelative:homework13_2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9E59362-4071-4A13-8C02-0E05D5FC90E4}|HomeWork13_2\\HomeWork13_2.csproj|c:\\github\\c-\\\u0434\u0437\\12 homework\\homework13_2\\core\\library.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9E59362-4071-4A13-8C02-0E05D5FC90E4}|HomeWork13_2\\HomeWork13_2.csproj|solutionrelative:homework13_2\\core\\library.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BF6DF9-AF56-41C3-AB2C-078878688BA8}|HomeWork13_3\\HomeWork13_3.csproj|c:\\github\\c-\\\u0434\u0437\\12 homework\\homework13_3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40BF6DF9-AF56-41C3-AB2C-078878688BA8}|HomeWork13_3\\HomeWork13_3.csproj|solutionrelative:homework13_3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A35E2D2-0A89-4869-BCE1-D992B44F1817}|HomeWork13\\HomeWork13.csproj|c:\\github\\c-\\\u0434\u0437\\12 homework\\homework13\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A35E2D2-0A89-4869-BCE1-D992B44F1817}|HomeWork13\\HomeWork13.csproj|solutionrelative:homework13\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UI.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_2\\UI\\UI.cs",
+              "RelativeDocumentMoniker": "HomeWork13_2\\UI\\UI.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_2\\UI\\UI.cs",
+              "RelativeToolTip": "HomeWork13_2\\UI\\UI.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAowDcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-05T04:19:51.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Library.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_2\\Core\\Library.cs",
+              "RelativeDocumentMoniker": "HomeWork13_2\\Core\\Library.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_2\\Core\\Library.cs",
+              "RelativeToolTip": "HomeWork13_2\\Core\\Library.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAgwDIAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-05T04:18:22.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_2\\Program.cs",
+              "RelativeDocumentMoniker": "HomeWork13_2\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_2\\Program.cs",
+              "RelativeToolTip": "HomeWork13_2\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACIAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-05T04:18:11.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13\\Program.cs",
+              "RelativeDocumentMoniker": "HomeWork13\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13\\Program.cs",
+              "RelativeToolTip": "HomeWork13\\Program.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowC0AAABiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T13:15:51.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_3\\Program.cs",
+              "RelativeDocumentMoniker": "HomeWork13_3\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\12 HomeWork\\HomeWork13_3\\Program.cs",
+              "RelativeToolTip": "HomeWork13_3\\Program.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAqwCsAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T10:23:58.316Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

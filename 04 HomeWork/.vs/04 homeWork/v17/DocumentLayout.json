@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ilya\\source\\repos\\04 homeWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E029CD-6C14-499A-A39B-5F6A19A59B97}|04 homeWork\\04 homeWork.csproj|c:\\users\\ilya\\source\\repos\\04 homework\\04 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E029CD-6C14-499A-A39B-5F6A19A59B97}|04 homeWork\\04 homeWork.csproj|solutionrelative:04 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4E029CD-6C14-499A-A39B-5F6A19A59B97}|04 homeWork\\04 homeWork.csproj|c:\\users\\ilya\\source\\repos\\04 homework\\04 homework\\task12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4E029CD-6C14-499A-A39B-5F6A19A59B97}|04 homeWork\\04 homeWork.csproj|solutionrelative:04 homework\\task12.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "task12.cs",
+              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\04 homeWork\\04 homeWork\\task12.cs",
+              "RelativeDocumentMoniker": "04 homeWork\\task12.cs",
+              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\04 homeWork\\04 homeWork\\task12.cs",
+              "RelativeToolTip": "04 homeWork\\task12.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:13:13.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\04 homeWork\\04 homeWork\\Program.cs",
+              "RelativeDocumentMoniker": "04 homeWork\\Program.cs",
+              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\04 homeWork\\04 homeWork\\Program.cs",
+              "RelativeToolTip": "04 homeWork\\Program.cs",
+              "ViewState": "AQIAAFgBAAAAAAAAAAAhwGsBAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T07:00:43.829Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

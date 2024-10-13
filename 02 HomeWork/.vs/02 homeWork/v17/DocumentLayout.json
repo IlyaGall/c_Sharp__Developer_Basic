@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\gitHub\\C-\\\u0414\u0417\\02 honeWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{298AEA82-A681-45B8-8725-C670D8AEB2C6}|02 homeWork\\02 homeWork.csproj|c:\\github\\c-\\\u0434\u0437\\02 honework\\02 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{298AEA82-A681-45B8-8725-C670D8AEB2C6}|02 homeWork\\02 homeWork.csproj|solutionrelative:02 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\gitHub\\C-\\\u0414\u0417\\02 honeWork\\02 homeWork\\Program.cs",
+              "RelativeDocumentMoniker": "02 homeWork\\Program.cs",
+              "ToolTip": "C:\\gitHub\\C-\\\u0414\u0417\\02 honeWork\\02 homeWork\\Program.cs",
+              "RelativeToolTip": "02 homeWork\\Program.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAqwJAAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:01:34.066Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

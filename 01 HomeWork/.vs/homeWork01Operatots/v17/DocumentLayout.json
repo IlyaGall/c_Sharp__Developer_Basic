@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ilya\\source\\repos\\homeWork01Operatots\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F52B636E-777A-4177-8933-C99824B27306}|homeWork01Operatots\\homeWork01Operatots.csproj|c:\\users\\ilya\\source\\repos\\homework01operatots\\homework01operatots\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52B636E-777A-4177-8933-C99824B27306}|homeWork01Operatots\\homeWork01Operatots.csproj|solutionrelative:homework01operatots\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\homeWork01Operatots\\homeWork01Operatots\\Program.cs",
+              "RelativeDocumentMoniker": "homeWork01Operatots\\Program.cs",
+              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\homeWork01Operatots\\homeWork01Operatots\\Program.cs",
+              "RelativeToolTip": "homeWork01Operatots\\Program.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAgwFgAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T03:32:47.665Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

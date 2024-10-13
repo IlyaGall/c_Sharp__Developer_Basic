@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|c:\\users\\ilya\\source\\repos\\homework8\\homework8\\binarytree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|solutionrelative:homework8\\binarytree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|c:\\users\\ilya\\source\\repos\\homework8\\homework8\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|solutionrelative:homework8\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|c:\\users\\ilya\\source\\repos\\homework8\\homework8\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|solutionrelative:homework8\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|c:\\users\\ilya\\source\\repos\\homework8\\homework8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D674D74-82D9-4773-92D0-8A21C2E9FD38}|homeWork8\\homeWork8.csproj|solutionrelative:homework8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Persona.cs",
+              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\Persona.cs",
+              "RelativeDocumentMoniker": "homeWork8\\Persona.cs",
+              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\Persona.cs",
+              "RelativeToolTip": "homeWork8\\Persona.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAmwAgAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:05:00.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "menu.cs",
+              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\menu.cs",
+              "RelativeDocumentMoniker": "homeWork8\\menu.cs",
+              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\menu.cs",
+              "RelativeToolTip": "homeWork8\\menu.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAASwHcAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:14:24.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BinaryTree.cs",
+              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\BinaryTree.cs",
+              "RelativeDocumentMoniker": "homeWork8\\BinaryTree.cs",
+              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\BinaryTree.cs",
+              "RelativeToolTip": "homeWork8\\BinaryTree.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAASwIEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:06:13.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\Program.cs",
+              "RelativeDocumentMoniker": "homeWork8\\Program.cs",
+              "ToolTip": "C:\\Users\\Ilya\\source\\repos\\homeWork8\\homeWork8\\Program.cs",
+              "RelativeToolTip": "homeWork8\\Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBEAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T05:15:48.617Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
