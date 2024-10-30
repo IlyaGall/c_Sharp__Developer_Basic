@@ -3,6 +3,7 @@
 ## 1 и 2 задание 
 1 Установить на локальный компьютер PostgreSQL (см. ссылки в презентации). 
 * !ссылки не было в презентации
+
 2 Скачать и восстановить БД dvdrental с помощью pgAdmin (см. ссылки в презентации). Приложить скриншот с pgAdmin.
 
 ![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/14%20HomeWork/img/1-2.jpg)
