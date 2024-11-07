@@ -3,7 +3,7 @@
 ## 1 задание
 В СУБД PostgreSQL создать БД Shop
 
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/1.jpg)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/1.JPG)
 
 
 ## 2 задание 
@@ -39,7 +39,7 @@ CREATE TABLE Orders
 );
 ```
 
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/2.jpg)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/2.JPG)
 
 
 ## 3 задание 
@@ -81,7 +81,7 @@ $do$;
 select * from Customers
 ```
 
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/14%20HomeWork/img/3.JPG)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/3.JPG)
 
 
 ```sql
@@ -101,7 +101,7 @@ $do$;
 
 select * from Products
 ```
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/14%20HomeWork/img/4.JPG)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/4.JPG)
 
 
 ```sql
@@ -122,7 +122,7 @@ $do$;
 select * from Orders
 ```
 
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/14%20HomeWork/img/5.JPG)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/5.JPG)
 
 
 ## 5 задание
@@ -149,7 +149,7 @@ join Products as pr on pr.ID = ord.ProductID
 where age > 30 and pr.id=1
 ```
 
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/14%20HomeWork/img/6.JPG)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/6.JPG)
 
 ## 6 задание
 
