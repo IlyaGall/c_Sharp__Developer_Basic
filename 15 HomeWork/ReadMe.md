@@ -160,6 +160,6 @@ on Customers(Age)
 
 !анализ проводил на запросе из 5 задания
 
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/14%20HomeWork/img/7.JPG)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/7.JPG)
 
-![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/14%20HomeWork/img/8.JPG)
+![img](https://github.com/IlyaGall/c_Sharp__Developer_Basic/blob/main/15%20HomeWork/img/8.JPG)
