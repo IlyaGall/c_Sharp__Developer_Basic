@@ -1,0 +1,12 @@
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\DataBaseTelegramBot.deps.json
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\DataBaseTelegramBot.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\DataBaseTelegramBot.pdb
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.AssemblyInfoInputs.cache
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.AssemblyInfo.cs
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.csproj.CoreCompileInputs.cache
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\refint\DataBaseTelegramBot.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.pdb
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\ref\DataBaseTelegramBot.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.csproj.AssemblyReference.cache

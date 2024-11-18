@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\server\\telegrambot\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|solutionrelative:server\\telegrambot\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\server\\commandsprocessing\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|solutionrelative:server\\commandsprocessing\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AF59FE5-6528-4206-9A8A-3598ACE0022C}|ObjectsBot\\ObjectsBot.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\objectsbot\\objectanalytics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AF59FE5-6528-4206-9A8A-3598ACE0022C}|ObjectsBot\\ObjectsBot.csproj|solutionrelative:objectsbot\\objectanalytics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1F8C404-A127-4030-BE52-6005413929B5}|Analytics\\Analytics.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\analytics\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1F8C404-A127-4030-BE52-6005413929B5}|Analytics\\Analytics.csproj|solutionrelative:analytics\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}|ParsingMoscowExchange\\RequestParsingMoscowExchange.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\parsingmoscowexchange\\listrequest\\requestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}|ParsingMoscowExchange\\RequestParsingMoscowExchange.csproj|solutionrelative:parsingmoscowexchange\\listrequest\\requestcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}|ParsingMoscowExchange\\RequestParsingMoscowExchange.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\parsingmoscowexchange\\parsing\\parserxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}|ParsingMoscowExchange\\RequestParsingMoscowExchange.csproj|solutionrelative:parsingmoscowexchange\\parsing\\parserxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ObjectAnalytics.cs",
+              "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectAnalytics.cs",
+              "RelativeDocumentMoniker": "ObjectsBot\\ObjectAnalytics.cs",
+              "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectAnalytics.cs",
+              "RelativeToolTip": "ObjectsBot\\ObjectAnalytics.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwCIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:29:05.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ParserXML.cs",
+              "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ParsingMoscowExchange\\Parsing\\ParserXML.cs",
+              "RelativeDocumentMoniker": "ParsingMoscowExchange\\Parsing\\ParserXML.cs",
+              "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ParsingMoscowExchange\\Parsing\\ParserXML.cs",
+              "RelativeToolTip": "ParsingMoscowExchange\\Parsing\\ParserXML.cs",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAgwJMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:10:50.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RequestCommand.cs",
+              "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ParsingMoscowExchange\\ListRequest\\RequestCommand.cs",
+              "RelativeDocumentMoniker": "ParsingMoscowExchange\\ListRequest\\RequestCommand.cs",
+              "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ParsingMoscowExchange\\ListRequest\\RequestCommand.cs",
+              "RelativeToolTip": "ParsingMoscowExchange\\ListRequest\\RequestCommand.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAYwJQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:10:50.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Server\\CommandsProcessing\\Server.cs",
+              "RelativeDocumentMoniker": "Server\\CommandsProcessing\\Server.cs",
+              "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Server\\CommandsProcessing\\Server.cs",
+              "RelativeToolTip": "Server\\CommandsProcessing\\Server.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAWwBUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:10:50.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Telegram.cs",
+              "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Server\\TelegramBot\\Telegram.cs",
+              "RelativeDocumentMoniker": "Server\\TelegramBot\\Telegram.cs",
+              "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Server\\TelegramBot\\Telegram.cs",
+              "RelativeToolTip": "Server\\TelegramBot\\Telegram.cs",
+              "ViewState": "AQIAAH0AAAAAAAAAAAArwIsAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-18T16:10:50.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Analytics\\Main.cs",
+              "RelativeDocumentMoniker": "Analytics\\Main.cs",
+              "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Analytics\\Main.cs",
+              "RelativeToolTip": "Analytics\\Main.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAArwFMAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T13:42:05.644Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

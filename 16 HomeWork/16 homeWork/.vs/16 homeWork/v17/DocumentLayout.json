@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|c:\\github\\c_sharp__developer_basic\\16 homework\\16 homework\\16 homework\\connectionandrequst\\helpconnectionserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|solutionrelative:16 homework\\connectionandrequst\\helpconnectionserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|c:\\github\\c_sharp__developer_basic\\16 homework\\16 homework\\16 homework\\connectionandrequst\\requst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|solutionrelative:16 homework\\connectionandrequst\\requst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|c:\\github\\c_sharp__developer_basic\\16 homework\\16 homework\\16 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|solutionrelative:16 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|c:\\github\\c_sharp__developer_basic\\16 homework\\16 homework\\16 homework\\connectionandrequst\\helpconnectionserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|solutionrelative:16 homework\\connectionandrequst\\helpconnectionserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|c:\\github\\c_sharp__developer_basic\\16 homework\\16 homework\\16 homework\\objects\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|c:\\github\\c_sharp__developer_basic\\16 homework\\16 homework\\16 homework\\objects\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|solutionrelative:16 homework\\objects\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|c:\\github\\c_sharp__developer_basic\\16 homework\\16 homework\\16 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB234169-64AC-43DA-85ED-935B81953BF0}|16 homeWork\\16 homeWork.csproj|solutionrelative:16 homework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,37 +34,38 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\Program.cs",
               "RelativeDocumentMoniker": "16 homeWork\\Program.cs",
               "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\Program.cs",
               "RelativeToolTip": "16 homeWork\\Program.cs",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAuwD4AAAAUAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T11:24:08.408Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "HelpConnectionServer.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\ConnectionAndRequst\\HelpConnectionServer.cs",
               "RelativeDocumentMoniker": "16 homeWork\\ConnectionAndRequst\\HelpConnectionServer.cs",
               "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\ConnectionAndRequst\\HelpConnectionServer.cs",
               "RelativeToolTip": "16 homeWork\\ConnectionAndRequst\\HelpConnectionServer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAFAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAcwC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T14:54:34.284Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\Objects\\Customer.cs",
               "RelativeDocumentMoniker": "16 homeWork\\Objects\\Customer.cs",
@@ -76,7 +77,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Orders.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\Objects\\Orders.cs",
               "RelativeDocumentMoniker": "16 homeWork\\Objects\\Orders.cs",
@@ -88,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\Objects\\Product.cs",
               "RelativeDocumentMoniker": "16 homeWork\\Objects\\Product.cs",
@@ -100,13 +101,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Requst.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\ConnectionAndRequst\\Requst.cs",
               "RelativeDocumentMoniker": "16 homeWork\\ConnectionAndRequst\\Requst.cs",
               "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\16 HomeWork\\16 homeWork\\16 homeWork\\ConnectionAndRequst\\Requst.cs",
               "RelativeToolTip": "16 homeWork\\ConnectionAndRequst\\Requst.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHIAAAAIAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowDQAAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T13:59:33.112Z",
               "EditorCaption": ""

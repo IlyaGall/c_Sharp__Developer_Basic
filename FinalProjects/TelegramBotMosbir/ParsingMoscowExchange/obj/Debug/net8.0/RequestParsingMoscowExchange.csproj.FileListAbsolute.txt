@@ -1,0 +1,17 @@
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\bin\Debug\net8.0\RequestParsingMoscowExchange.deps.json
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\bin\Debug\net8.0\RequestParsingMoscowExchange.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\bin\Debug\net8.0\RequestParsingMoscowExchange.pdb
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\bin\Debug\net8.0\ObjectsBot.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\bin\Debug\net8.0\Settings.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\bin\Debug\net8.0\ObjectsBot.pdb
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\bin\Debug\net8.0\Settings.pdb
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestParsingMoscowExchange.csproj.AssemblyReference.cache
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestParsingMoscowExchange.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestParsingMoscowExchange.AssemblyInfoInputs.cache
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestParsingMoscowExchange.AssemblyInfo.cs
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestParsingMoscowExchange.csproj.CoreCompileInputs.cache
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestP.EFDB5CDE.Up2Date
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestParsingMoscowExchange.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\refint\RequestParsingMoscowExchange.dll
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\RequestParsingMoscowExchange.pdb
+C:\Users\Ilya\source\repos\TelegramBotMosbir\ParsingMoscowExchange\obj\Debug\net8.0\ref\RequestParsingMoscowExchange.dll

@@ -1,0 +1,53 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "RequestParsingMoscowExchange/1.0.0": {
+        "dependencies": {
+          "ObjectsBot": "1.0.0",
+          "Settings": "1.0.0"
+        },
+        "runtime": {
+          "RequestParsingMoscowExchange.dll": {}
+        }
+      },
+      "ObjectsBot/1.0.0": {
+        "runtime": {
+          "ObjectsBot.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Settings/1.0.0": {
+        "runtime": {
+          "Settings.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RequestParsingMoscowExchange/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ObjectsBot/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Settings/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
