@@ -134,24 +134,23 @@ namespace Analytics.GraphicCreator
 
             StringBuilder stringBuilder = new StringBuilder();
             
-            for (int i = linePoints.Count - 1; i != linePoints.Count - 5; i--)
-            {//Ограничения по количеству линий, берём последние 5 линий
-               // stringBuilder.Append(linePoints[i].CoordinateY+"\n");
-                var axLine3 = myPlot.Add.Line(
-                myPlot.Axes.Bottom.Min,
-                       linePoints[i].CoordinateY,
-                myPlot.Axes.Bottom.Max,
-                       linePoints[i].CoordinateY
-                      );
-            }
-            List<double> lineSuppot = new List<double>();
-            List<double> lineResistance = new List<double>();
+            //for (int i = linePoints.Count - 1; i != linePoints.Count - 5; i--)
+            //{//Ограничения по количеству линий, берём последние 5 линий
+            //   // stringBuilder.Append(linePoints[i].CoordinateY+"\n");
+            //    var axLine3 = myPlot.Add.Line(
+            //    myPlot.Axes.Bottom.Min,
+            //           linePoints[i].CoordinateY,
+            //    myPlot.Axes.Bottom.Max,
+            //           linePoints[i].CoordinateY
+            //          );
+            //}
+          
 
             Analytics.LineSupport.AnalyticLine SupportResistance = new LineSupport.AnalyticLine();
-            var analitcs = SupportResistance.SupportAndResistance(candles[candles.Count - 1].Close, linePoints);
-            stringBuilder.Append(analitcs.Item1);
+            var analytics = SupportResistance.SupportAndResistance(candles[candles.Count - 1].Close, linePoints);
+            stringBuilder.Append(analytics.Item1);
             int step = 0;
-            foreach (var lineItem in analitcs.Item2) 
+            foreach (var lineItem in analytics.Item2.Values) 
             {
                 var axLine3 = myPlot.Add.Line(
                     myPlot.Axes.Bottom.Min,
@@ -167,7 +166,7 @@ namespace Analytics.GraphicCreator
                 }
             }
             step = 0;
-            foreach (var lineItem in analitcs.Item3)
+            foreach (var lineItem in analytics.Item3.Values)
             {
                 var axLine3 = myPlot.Add.Line(
                     myPlot.Axes.Bottom.Min,

@@ -15,30 +15,34 @@ namespace Analytics.LineSupport
         /// <param name="candles">Последняя свеча</param>
         /// <param name="linePoints">Коллекция линий поддержки</param>
         /// <returns>Текст анализа, List<LinePoint>линий поддержки, List<LinePoint> линий сопротивления </returns>
-        public (string, List<LinePoint>, List<LinePoint>) SupportAndResistance(double candles, List<LinePoint> linePoints) 
+        public (string, Dictionary<double, LinePoint>, Dictionary<double, LinePoint>) SupportAndResistance(double candles, List<LinePoint> linePoints) 
         {
             List<double> lineSuppot = new List<double>();
             List<double> lineResistance = new List<double>();
             StringBuilder sb = new StringBuilder();
-            List<LinePoint> linePointsSupport= new List<LinePoint>();
-            List<LinePoint> linePointsResistance = new List<LinePoint>();
+          
+         //   List<LinePoint> linePointsSupport= new List<LinePoint>();
+        //    List<LinePoint> linePointsResistance = new List<LinePoint>();
 
+            Dictionary<double, LinePoint> linePointsSupport= new Dictionary<double, LinePoint>();
+            Dictionary<double, LinePoint> linePointsResistance = new Dictionary<double, LinePoint>();
 
             foreach (var linePoint in linePoints)
             {
                 if (linePoint.CoordinateY > candles)
                 {
                     lineSuppot.Add(linePoint.CoordinateY);
-                    linePointsSupport.Add(linePoint);
+                    linePointsSupport.Add(linePoint.CoordinateY, linePoint);
                 }
                 else
                 {
                     lineResistance.Add(linePoint.CoordinateY);
-                    linePointsResistance.Add(linePoint);
+                    linePointsResistance.Add(linePoint.CoordinateY, linePoint);
                 }
             }
-            lineSuppot.Sort();
-            lineResistance.Sort();
+            var sortLinePointsResistance =  linePointsResistance.OrderByDescending(k => k.Key).ToDictionary();
+            var sortLinePointsSupport = linePointsSupport.OrderBy(k => k.Key).ToDictionary();//.ThenBy(fruit => fruit);
+
             int step = 0;
             sb.AppendLine("Линии поддержки:\n");
             if (lineSuppot.Count == 0) 
@@ -47,7 +51,7 @@ namespace Analytics.LineSupport
             }
             else 
             {
-                foreach (var linePoint in lineSuppot)
+                foreach (var linePoint in sortLinePointsSupport.Keys)
                 {
                     if (step > 5) { break; }
                     sb.Append(linePoint + "\n");
@@ -63,14 +67,14 @@ namespace Analytics.LineSupport
             else
             {
                 step = 0;
-                foreach (var linePoint in lineResistance)
+                foreach (var linePoint in sortLinePointsResistance.Keys)
                 {
                     if (step > 5) { break; }
                     sb.Append(linePoint+"\n");
                     step++;
                 }
             }
-            return (sb.ToString(), linePointsSupport, linePointsResistance);
+            return (sb.ToString(), sortLinePointsSupport, sortLinePointsResistance);
         }
     }
 }

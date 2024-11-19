@@ -34,15 +34,15 @@ namespace Analytics.TextGeneration
                     percent = statistic[1] * 100 / statistic[0] - 100;
                     if (percent == 0)
                     {
-                        returnStringAnalytic = $"Позиция по за {info} день НЕЙТРАЛЬНАЯ коэ-т {statistic[0]}\n %: {percent}\n";
+                        returnStringAnalytic = $"Позиция по за {info} день НЕЙТРАЛЬНАЯ цена: {statistic[0]}\n %: {percent}\n";
                     }
                     if (percent > 0)
                     {
-                        returnStringAnalytic = $"Позиция по акции за {info} день ПОКУПКА коэ-т {statistic[0]}\n %: ▲{percent}\n";
+                        returnStringAnalytic = $"Позиция по акции за {info} день ПОКУПКА цена: {statistic[0]}\n %: ▲{percent}\n";
                     }
                     if (percent < 0)
                     {
-                        returnStringAnalytic = $"Позиция по акции за {info} день ПРОДАЖА коэ-т {statistic[0]}\n %: ▼{percent}\n";
+                        returnStringAnalytic = $"Позиция по акции за {info} день ПРОДАЖА цена: {statistic[0]}\n %: ▼{percent}\n";
                     }
                     break;
             }

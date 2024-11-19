@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GraphicCreator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16996144566316888b50f854934244342635d22d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4fb70acd5f0b48d1c4ccaeae5d34bb35b149b70")]
 [assembly: System.Reflection.AssemblyProductAttribute("GraphicCreator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GraphicCreator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
