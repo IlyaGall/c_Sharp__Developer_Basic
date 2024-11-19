@@ -231,11 +231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\DataBaseTelegramBot\\DataBaseTelegramBot.csproj",
+      "projectUniqueName": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\DataBaseTelegramBot\\DataBaseTelegramBot.csproj",
       "projectName": "DataBaseTelegramBot",
-      "projectPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\DataBaseTelegramBot\\DataBaseTelegramBot.csproj",
+      "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\DataBaseTelegramBot\\DataBaseTelegramBot.csproj",
       "packagesPath": "C:\\Users\\Ilya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\DataBaseTelegramBot\\obj\\",
+      "outputPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\DataBaseTelegramBot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ilya\\AppData\\Roaming\\NuGet\\NuGet.Config",

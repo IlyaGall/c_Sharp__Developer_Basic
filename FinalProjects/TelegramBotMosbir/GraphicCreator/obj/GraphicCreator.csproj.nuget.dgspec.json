@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj": {}
+    "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj": {
+    "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj",
+        "projectUniqueName": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj",
         "projectName": "GraphicCreator",
-        "projectPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj",
+        "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\GraphicCreator\\GraphicCreator.csproj",
         "packagesPath": "C:\\Users\\Ilya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\GraphicCreator\\obj\\",
+        "outputPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\GraphicCreator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ilya\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,11 +29,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj": {
-                "projectPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj"
+              "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj": {
+                "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj"
               },
-              "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\Settings\\Settings.csproj": {
-                "projectPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\Settings\\Settings.csproj"
+              "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Settings\\Settings.csproj": {
+                "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Settings\\Settings.csproj"
               }
             }
           }
@@ -78,14 +78,14 @@
         }
       }
     },
-    "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj": {
+    "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj",
+        "projectUniqueName": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj",
         "projectName": "ObjectsBot",
-        "projectPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj",
+        "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj",
         "packagesPath": "C:\\Users\\Ilya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\ObjectsBot\\obj\\",
+        "outputPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ilya\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -139,14 +139,14 @@
         }
       }
     },
-    "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\Settings\\Settings.csproj": {
+    "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Settings\\Settings.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\Settings\\Settings.csproj",
+        "projectUniqueName": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Settings\\Settings.csproj",
         "projectName": "Settings",
-        "projectPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\Settings\\Settings.csproj",
+        "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Settings\\Settings.csproj",
         "packagesPath": "C:\\Users\\Ilya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\Settings\\obj\\",
+        "outputPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Settings\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ilya\\AppData\\Roaming\\NuGet\\NuGet.Config",

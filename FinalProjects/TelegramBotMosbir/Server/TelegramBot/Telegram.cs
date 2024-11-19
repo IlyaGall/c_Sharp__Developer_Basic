@@ -98,9 +98,16 @@ namespace Server.TelegramBot
                     //    await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
                     //    break;
                     case "/indexMB30Day":
+                        objectAnalytics = Server.Commands.Server.ServerCommand("/indexMB30Day", objectAnalytics, "");
+                        await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
+                        break;
                     case "/indexMBYear":
+                        objectAnalytics = Server.Commands.Server.ServerCommand("/indexMBYear", objectAnalytics, "");
+                        await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
+                        break;
+
                     case "test":
-                        //getAnswer = Server.ServerCommand(buttonCommand);
+
                         //await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {getAnswer.Item1}");
                         //if (getAnswer.Item2 != null)
                         //{
@@ -132,16 +139,16 @@ namespace Server.TelegramBot
                                 int stepCollection = 0;
                               //  foreach (string pathImg in objectAnalytics.PathImg)
                                // {
-                                    if (objectAnalytics.DescriptionImg?.Count == 0 && objectAnalytics.DescriptionImg[stepCollection]!=null)
-                                    {
-                                    //    await loadPhoto(botClient, userId, pathImg, objectAnalytics.DescriptionImg[stepCollection]);
+                                    //if (objectAnalytics.DescriptionImg?.Count == 0 && objectAnalytics.DescriptionImg[stepCollection]!=null)
+                                    //{
+                                    ////    await loadPhoto(botClient, userId, pathImg, objectAnalytics.DescriptionImg[stepCollection]);
+                                    //    await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
+                                    //}
+                                    //else
+                                    //{
+                                    //   // await loadPhoto(botClient, userId, pathImg, "");
                                         await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
-                                    }
-                                    else
-                                    {
-                                       // await loadPhoto(botClient, userId, pathImg, "");
-                                        await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
-                                    }
+                                  //  }
                                 //}
                             }
                             objectAnalytics.Clear();

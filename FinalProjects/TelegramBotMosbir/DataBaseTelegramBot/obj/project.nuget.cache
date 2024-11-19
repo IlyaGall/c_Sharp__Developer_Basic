@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gWooHYYAgKE=",
+  "dgSpecHash": "UrIJmwuEx5M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ilya\\source\\repos\\TelegramBotMosbir\\DataBaseTelegramBot\\DataBaseTelegramBot.csproj",
+  "projectFilePath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\DataBaseTelegramBot\\DataBaseTelegramBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ilya\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Ilya\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",

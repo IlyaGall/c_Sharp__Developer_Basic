@@ -33,13 +33,18 @@ namespace Server.Commands
                     exit = true;
                     break;
                 case "/indexMB30Day": // индекс московской биржи за 30 дней
-                    //return Analytic.AnalyticMoscowExchangeActive(
-                    //   url: RequestCommand.QueryGetMoscowExchange(),
-                    //   typeActive: "MoscowExchangeHistory");
+                     Analytics.Main.AnalyticMoscowExchangeActive(
+                        url: RequestCommand.QueryGetMoscowExchange(),
+                        objectAnalytics,
+                        typeActive: "MoscowExchangeHistory");
+                    return objectAnalytics;
                 case "/indexMBYear":
-                    //return Analytic.AnalyticMoscowExchangeActive(
-                    //url: RequestCommand.QueryGetMoscowExchangeYear(),
-                    //typeActive: "MoscowExchangeHistory");
+                    Analytics.Main.AnalyticMoscowExchangeActive(
+                      url: RequestCommand.QueryGetMoscowExchangeYear(),
+                      objectAnalytics,
+                      typeActive: "MoscowExchangeHistory");
+                    return objectAnalytics;
+
                 case "/AddFavorites":
                     break;
                 case "test":// получить акцию

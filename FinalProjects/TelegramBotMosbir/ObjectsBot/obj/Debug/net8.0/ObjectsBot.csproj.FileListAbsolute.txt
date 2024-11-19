@@ -9,3 +9,15 @@ C:\Users\Ilya\source\repos\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\Objects
 C:\Users\Ilya\source\repos\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\refint\ObjectsBot.dll
 C:\Users\Ilya\source\repos\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.pdb
 C:\Users\Ilya\source\repos\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ref\ObjectsBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\bin\Debug\net8.0\ObjectsBot.deps.json
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\bin\Debug\net8.0\ObjectsBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\bin\Debug\net8.0\ObjectsBot.pdb
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.AssemblyInfoInputs.cache
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.AssemblyInfo.cs
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.csproj.CoreCompileInputs.cache
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.sourcelink.json
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\refint\ObjectsBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ObjectsBot.pdb
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\ObjectsBot\obj\Debug\net8.0\ref\ObjectsBot.dll

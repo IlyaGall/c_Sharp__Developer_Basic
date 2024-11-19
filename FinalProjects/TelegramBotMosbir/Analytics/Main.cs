@@ -10,7 +10,7 @@ namespace Analytics
     public static class Main
     {
         /// <summary>
-        /// аналитика по индексу мосбиржи
+        /// Аналитика по индексу мосбиржи
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
@@ -71,44 +71,49 @@ namespace Analytics
                             collectionInformationForCreateImages.Keys.ToArray().Length)
                         )
                    );
-                    objectAnalytics?.PathImg?.Add(
-                         GraphicCreator.Creat.GraphicCreatorLineSupport(
+
+                    (string, string) analyzeLineSuppot = GraphicCreator.Creat.GraphicCreatorLineSupport(
                               candles: s,
                               linePoints: MethodLineSupport.lineSupport(url),
                               nameFile: nameStock + ".png"
-
-                             )
+                             );
+                    objectAnalytics?.PathImg?.Add(
+                        analyzeLineSuppot.Item1
                         );
                     objectAnalytics?.DescriptionImg?.Add(nameStock + ": " + TextAnalytic.generationText("Свечи", "1", s[0].Open, s[s.Count - 1].Close));
-                    objectAnalytics?.DescriptionImg?.Add(nameStock + ": " + TextAnalytic.generationText("Свечи", "364", s[0].Open, s[s.Count - 1].Close));
-                    objectAnalytics.Description = "";
-                   
+                    objectAnalytics?.DescriptionImg?.Add(analyzeLineSuppot.Item2);
 
+                  //objectAnalytics?.DescriptionImg?.Add(nameStock + ": " + TextAnalytic.generationText("Свечи", "364", s[0].Open, s[s.Count - 1].Close));
+                  objectAnalytics.Description = "";
                     return objectAnalytics;
-
-
-
-
-
-
                 case "MoscowExchangeHistory": // за 30 дней
-                    collectionInformationForCreateImages = ParserXML.parsingXmlHistory(url);
-                    double[] array = collectionInformationForCreateImages.Values.ToArray();
-                    items = new List<string>()
                     {
-                         GraphicCreator.Creat.GraphicCreatorDateTime(
-                         nameFile: $"Индекс за 30 дней.png",
-                         collectionInformationForCreateImages.Keys.ToArray(),
-                         array)
-                    };
-                    objectAnalytics?.DescriptionImg?.Add(TextAnalytic.generationText("Индекс мосбиржи", text, array[0], array[array.Length - 1]));
+                        collectionInformationForCreateImages = ParserXML.parsingXmlHistory(url);
+                        double[] array = collectionInformationForCreateImages.Values.ToArray();
+                        objectAnalytics?.PathImg?.Add(
 
+                             GraphicCreator.Creat.GraphicCreatorDateTime(
+                             nameFile: $"Индекс за 30 дней.png",
+                             collectionInformationForCreateImages.Keys.ToArray(),
+                             array)
+                        );
+                        objectAnalytics?.DescriptionImg?.Add(TextAnalytic.generationText("Индекс мосбиржи", text, array[0], array[array.Length - 1]));
+                    }
                     return objectAnalytics;
 
                 case "MoscowExchangeHistoryYear":
-
-                    break;
-
+                    {
+                        collectionInformationForCreateImages = ParserXML.parsingXmlHistory(url);
+                        double[] array = collectionInformationForCreateImages.Values.ToArray();
+                        objectAnalytics?.PathImg?.Add(
+                             GraphicCreator.Creat.GraphicCreatorDateTime(
+                             nameFile: $"Индекс за 364 дня.png",
+                             collectionInformationForCreateImages.Keys.ToArray(),
+                             array)
+                        );
+                        objectAnalytics?.DescriptionImg?.Add(TextAnalytic.generationText("Индекс мосбиржи", text, array[0], array[array.Length - 1]));
+                    }
+                    return objectAnalytics;
             }
             //return ("", items, null);
             return objectAnalytics;

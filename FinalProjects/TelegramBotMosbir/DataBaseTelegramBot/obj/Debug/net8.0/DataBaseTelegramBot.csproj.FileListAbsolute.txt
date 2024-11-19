@@ -10,3 +10,16 @@ C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.
 C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.pdb
 C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\ref\DataBaseTelegramBot.dll
 C:\Users\Ilya\source\repos\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.csproj.AssemblyReference.cache
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\DataBaseTelegramBot.deps.json
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\DataBaseTelegramBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\DataBaseTelegramBot.pdb
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.csproj.AssemblyReference.cache
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.AssemblyInfoInputs.cache
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.AssemblyInfo.cs
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.csproj.CoreCompileInputs.cache
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.sourcelink.json
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\refint\DataBaseTelegramBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.pdb
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\ref\DataBaseTelegramBot.dll

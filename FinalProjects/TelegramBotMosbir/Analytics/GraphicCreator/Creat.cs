@@ -1,6 +1,8 @@
 ﻿using ObjectsBot;
 using ScottPlot;
 using SettingsProject;
+using System.Collections.Generic;
+using System.Text;
 
 
 namespace Analytics.GraphicCreator
@@ -98,8 +100,14 @@ namespace Analytics.GraphicCreator
 
 
 
-
-        static public string GraphicCreatorLineSupport(List<Candle> candles, List<LinePoint> linePoints, string nameFile = "за день свечки.png")
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="candles"></param>
+        /// <param name="linePoints"></param>
+        /// <param name="nameFile"></param>
+        /// <returns>1 путь к картинке, 2 анализ</returns>
+        static public (string,string) GraphicCreatorLineSupport(List<Candle> candles, List<LinePoint> linePoints, string nameFile = "за день свечки.png")
         {
             ScottPlot.Plot myPlot = new();
             DateTime timeOpen = candles[0].Begin;// new(2024, 01, 03, 9, 30, 0); // 9:30 AM
@@ -124,8 +132,11 @@ namespace Analytics.GraphicCreator
             myPlot.Add.VerticalLine(264);
             myPlot.Add.HorizontalLine(264);
 
+            StringBuilder stringBuilder = new StringBuilder();
+            
             for (int i = linePoints.Count - 1; i != linePoints.Count - 5; i--)
-            {
+            {//Ограничения по количеству линий, берём последние 5 линий
+               // stringBuilder.Append(linePoints[i].CoordinateY+"\n");
                 var axLine3 = myPlot.Add.Line(
                 myPlot.Axes.Bottom.Min,
                        linePoints[i].CoordinateY,
@@ -133,20 +144,83 @@ namespace Analytics.GraphicCreator
                        linePoints[i].CoordinateY
                       );
             }
+            List<double> lineSuppot = new List<double>();
+            List<double> lineResistance = new List<double>();
+
+            Analytics.LineSupport.AnalyticLine SupportResistance = new LineSupport.AnalyticLine();
+            var analitcs = SupportResistance.SupportAndResistance(candles[candles.Count - 1].Close, linePoints);
+            stringBuilder.Append(analitcs.Item1);
+            int step = 0;
+            foreach (var lineItem in analitcs.Item2) 
+            {
+                var axLine3 = myPlot.Add.Line(
+                    myPlot.Axes.Bottom.Min,
+                          lineItem.CoordinateY,
+                    myPlot.Axes.Bottom.Max,
+                           lineItem.CoordinateY
+                          );
+                step++;
+                if (step > 5) 
+                {
+                    break;
+                 
+                }
+            }
+            step = 0;
+            foreach (var lineItem in analitcs.Item3)
+            {
+                var axLine3 = myPlot.Add.Line(
+                    myPlot.Axes.Bottom.Min,
+                          lineItem.CoordinateY,
+                    myPlot.Axes.Bottom.Max,
+                           lineItem.CoordinateY
+                          );
+                step++;
+                if (step > 5)
+                {
+                    break;
+                }
+            }
+            //for (int i = analitcs.Item2.Count - 1; i != analitcs.Item2.Count - 5; i--)
+            //{//Ограничения по количеству линий, берём последние 5 линий
+            // // stringBuilder.Append(linePoints[i].CoordinateY+"\n");
+            //    var axLine3 = myPlot.Add.Line(
+            //    myPlot.Axes.Bottom.Min,
+            //           linePoints[i].CoordinateY,
+            //    myPlot.Axes.Bottom.Max,
+            //           linePoints[i].CoordinateY
+            //          );
+            //}
             //foreach (var linePoint in linePoints)
             //{
-            //    var axLine3 = myPlot.Add.Line(
-            //        myPlot.Axes.Bottom.Min,
-            //        linePoint.CoordinateY,
-            //        myPlot.Axes.Bottom.Max,
-            //        linePoint.CoordinateY
-            //       );
+
+            //    if (linePoint.CoordinateY > candles[candles.Count - 1].Close)
+            //    {
+            //        lineSuppot.Add(linePoint.CoordinateY);
+
+            //    }
+            //    else 
+            //    {
+            //        lineResistance.Add(linePoint.CoordinateY);
+
+            //    }
+
+
+
+            //    //var axLine3 = myPlot.Add.Line(
+            //    //    myPlot.Axes.Bottom.Min,
+            //    //    linePoint.CoordinateY,
+            //    //    myPlot.Axes.Bottom.Max,
+            //    //    linePoint.CoordinateY
+            //    //   );
             //}
+
+
 
 
             nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
             myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG, Settings.GlobalParameters.HeightIMG);
-            return $"{Settings.GlobalParameters.PathSave}\\{nameFile}";
+            return ($"{Settings.GlobalParameters.PathSave}\\{nameFile}", stringBuilder.ToString());
         }
 
 
