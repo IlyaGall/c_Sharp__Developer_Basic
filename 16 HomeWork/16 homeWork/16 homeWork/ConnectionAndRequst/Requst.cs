@@ -1,16 +1,9 @@
 ﻿using _16_homeWork.Objects;
 using _16_homeWork.Server;
-using Dapper;
-using System;
-using System.Collections.Generic;
+using Dapper; // Сам запрос
+using Npgsql; // коннект к progress
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using Npgsql;
-using System.Diagnostics;
-using Npgsql;
-using System.Collections;
+
 
 
 namespace _16_homeWork.ConnectionAndRequest
