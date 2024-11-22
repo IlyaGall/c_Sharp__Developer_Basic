@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataBaseTelegramBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4fb70acd5f0b48d1c4ccaeae5d34bb35b149b70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c71e394f92c1a90a453c72dfc7f52187df6afa53")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataBaseTelegramBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataBaseTelegramBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

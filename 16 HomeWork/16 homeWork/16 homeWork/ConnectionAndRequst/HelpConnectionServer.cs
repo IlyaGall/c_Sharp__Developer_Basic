@@ -1,4 +1,5 @@
 ﻿using _16_homeWork.ConnectionAndRequest;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,8 +43,22 @@ namespace _16_homeWork.Server
         public void CreateStringConnection()
         {
             ConnectionString = $"Server={NameServer};Port={PortConnectionServer};User Id={UserId};Password={Password};Database={NameDateBase};";
-          
+
         }
+        /// <summary>
+        /// Подключение для Dapper
+        /// </summary>
+        public string ConnectionStringDapper { get; set; }
+
+        /// <summary>
+        /// Сформировать строку подключения к БД для dapper
+        /// </summary>
+        public void CreateStringConnectionDapper()
+        {
+            ConnectionStringDapper = $"Host=localhost:{PortConnectionServer};Username={UserId};Password={Password};Database={NameDateBase}";
+           
+        }
+
 
     }
 }

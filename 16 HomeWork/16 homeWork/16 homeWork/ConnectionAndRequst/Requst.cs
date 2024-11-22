@@ -7,7 +7,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using Npgsql;
+using System.Diagnostics;
 using Npgsql;
+using System.Collections;
 
 
 namespace _16_homeWork.ConnectionAndRequest
@@ -22,12 +25,12 @@ namespace _16_homeWork.ConnectionAndRequest
         /// <returns></returns>
         public List<Customer> GetRequestCustomers(HelpConnectionServer helpConnectionServer)
         {
-            var result = new List<Customer>();
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"select id,age,firstname,lastname 
+                                  from customers";
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
             {
-                result.AddRange(db.Query<Customer>("select id,age,firstname,lastname from customers"));
+                return connection.Query<Customer>(commandSql).ToList();
             }
-            return result;
         }
 
         /// <summary>
@@ -38,26 +41,41 @@ namespace _16_homeWork.ConnectionAndRequest
         /// <returns></returns>
         public List<Customer> GetRequestCustomersAge(HelpConnectionServer helpConnectionServer, int age) 
         {
-            var result = new List<Customer>();
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"select id, age, firstname, lastname 
+                                from customers 
+                                where age > @Age"; 
+            var param = new
             {
-                result.AddRange(db.Query<Customer>($"select id,age,firstname,lastname from customers where age > {age}"));
+                Age = age
+            };
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper)) 
+            {
+               return connection.Query<Customer>(commandSql, param).ToList();
             }
-            return result;
         }
+       
+
+
 
         /// <summary>
         /// Добавить нового клиента
         /// </summary>
         /// <param name="helpConnectionServer"></param>
-        public void AddNewClient(HelpConnectionServer helpConnectionServer, AddCustomer addCustomer) 
+        public void AddNewClient(HelpConnectionServer helpConnectionServer, int age, string firstName, string lastName) 
         {
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"INSERT INTO Customers (age, firstname, lastname) 
+                                 VALUES (@Age, @FirstName, @LastName)";
+            var param = new
             {
-                var sqlQuery = "INSERT INTO Customers (age, firstname, lastname) VALUES (@age, @firstname, @lastname)";
-                db.Execute(sqlQuery, addCustomer);
+                Age = age,
+                FirstName = firstName,
+                LastName = lastName
+            };
+
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                 connection.Execute(commandSql, param);
             }
-          
         }
         #endregion
 
@@ -70,12 +88,12 @@ namespace _16_homeWork.ConnectionAndRequest
         /// <returns></returns>
         public List<Orders> GetRequestOrders(HelpConnectionServer helpConnectionServer)
         {
-            var result = new List<Orders>();
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"select id, customerid, productid,quantity 
+                                from orders";
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
             {
-                result.AddRange(db.Query<Orders>("select id,customerid,productid,quantity from orders"));
+                return connection.Query<Orders>(commandSql).ToList();
             }
-            return result;
         }
 
         /// <summary>
@@ -86,12 +104,16 @@ namespace _16_homeWork.ConnectionAndRequest
         /// <returns></returns>
         public List<Orders> GetRequestOrdersQuantity(HelpConnectionServer helpConnectionServer, int quantity)
         {
-            var result = new List<Orders>();
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"select id, customerid, productid, quantity 
+                                  from orders where quantity >=@Quantity";
+            var param = new
             {
-                result.AddRange(db.Query<Orders>($"select id,customerid,productid,quantity from orders where quantity >={quantity}"));
+                Quantity = quantity
+            };
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                return connection.Query<Orders>(commandSql, param).ToList();
             }
-            return result;
         }
 
 
@@ -99,14 +121,24 @@ namespace _16_homeWork.ConnectionAndRequest
         /// Добавить новый заказ
         /// </summary>
         /// <param name="helpConnectionServer"></param>
-        /// <param name="addOrder"></param>
-        public void AddNewOrder(HelpConnectionServer helpConnectionServer, AddOrder addOrder) 
+        /// <param name="customerId">Id позиции</param>
+        /// <param name="productId">Id продукта</param>
+        /// <param name="quantity">Кол-во</param>
+        public void AddNewOrder(HelpConnectionServer helpConnectionServer, int customerId, int productId, int quantity) 
         {
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"INSERT INTO orders (customerid,productid,quantity) 
+                                  VALUES (@CustomerId, @ProductId, @Quantity)";
+            var Param = new
             {
-                var sqlQuery = "INSERT INTO orders (customerid,productid,quantity) VALUES (@customerid, @productid, @quantity)";
-                db.Execute(sqlQuery, addOrder);
+                CustomerId = customerId,
+                ProductId = productId,
+                Quantity = quantity
+            };
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                connection.Execute(commandSql, Param);
             }
+
         }
         #endregion
 
@@ -120,12 +152,14 @@ namespace _16_homeWork.ConnectionAndRequest
         /// <returns></returns>
         public List<Product> GetRequestProducts(HelpConnectionServer helpConnectionServer)
         {
-            var result = new List<Product>();
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"select id, name, description, stockquantity, price 
+                                from products";
+       
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
             {
-                result.AddRange(db.Query<Product>("select id, name, description, stockquantity, price from products"));
+                return connection.Query<Product>(commandSql).ToList();
             }
-            return result;
+
         }
 
         /// <summary>
@@ -135,24 +169,40 @@ namespace _16_homeWork.ConnectionAndRequest
         /// <returns></returns>
         public List<Product> GetRequestProducts(HelpConnectionServer helpConnectionServer, int price)
         {
-            var result = new List<Product>();
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"select id, name, description, stockquantity, price 
+                                from products 
+                                where price > @Price";
+            var param = new
             {
-                result.AddRange(db.Query<Product>($"select id, name, description, stockquantity, price from products where price > {price}"));
+                Price = price
+            };
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                return connection.Query<Product>(commandSql, param).ToList();
             }
-            return result;
         }
         /// <summary>
         /// Добавить новый продукт
         /// </summary>
         /// <param name="helpConnectionServer"></param>
-        /// <param name="addOrder"></param>
-        public void AddNewProduct(HelpConnectionServer helpConnectionServer, AddProduct addProduct)
+        /// <param name="name"></param>
+        /// <param name="description"></param>
+        /// <param name="stockQuantity"></param>
+        /// <param name="price"></param>
+        public void AddNewProduct(HelpConnectionServer helpConnectionServer, string name, string description, int stockQuantity, double price)
         {
-            using (IDbConnection db = new NpgsqlConnection(helpConnectionServer.ConnectionString))
+            string commandSql = @"INSERT INTO products (name,description,stockquantity, price) 
+                                 VALUES (@Name, @Description, @StockQuantity, @Price)";
+            var Param = new
             {
-                var sqlQuery = "INSERT INTO products (name,description,stockquantity, price) VALUES (@name, @description, @stockquantity, @price)";
-                db.Execute(sqlQuery, addProduct);
+                Name = name,
+                Description = description,
+                StockQuantity = stockQuantity,
+                Price = price
+            };
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                connection.Execute(commandSql, Param);
             }
         }
         #endregion

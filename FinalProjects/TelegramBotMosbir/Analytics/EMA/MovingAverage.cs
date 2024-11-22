@@ -4,7 +4,7 @@ namespace Analytics.EMA
     static public class MovingAverage
     {
         /// <summary>
-        /// расчёт скользящей средней
+        /// Расчёт скользящей средней
         /// </summary>
         /// <param name="kvs">массив значений(цена акции за день)</param>
         /// <param name="period">период</param>

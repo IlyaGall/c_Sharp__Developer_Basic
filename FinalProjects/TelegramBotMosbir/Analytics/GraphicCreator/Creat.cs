@@ -1,4 +1,6 @@
-﻿using ObjectsBot;
+﻿using Analytics.EMA;
+using Analytics.MA;
+using ObjectsBot;
 using ScottPlot;
 using SettingsProject;
 using System.Collections.Generic;
@@ -64,18 +66,21 @@ namespace Analytics.GraphicCreator
 
         static public string GraphicCreatorDateTimeEMA(string nameFile, DateTime[] date, double[] value, double[] EMA)
         {
+            AnalyticEMA eMAAnalytic = new AnalyticEMA();
+
             ScottPlot.Plot myPlot = new();
             myPlot.Add.Scatter(date, value); // x , y
             myPlot.Axes.DateTimeTicksBottom();
-
             myPlot.Axes.Right.MinimumSize = 50;
-
-            Console.WriteLine($"{myPlot.Axes.Bottom.Min} - {myPlot.Axes.Bottom.Max}");
-
-
             myPlot.Add.Scatter(date, EMA); // x , y
             myPlot.Axes.DateTimeTicksBottom();
+            eMAAnalytic.AnalyticEMAData( value, EMA, date);
+            AnalyticMA analyticMA =new AnalyticMA();
 
+            analyticMA.MA(value);
+
+            // Analytics.MA.AnalyticMA analyticMA =new Analytics.MA.AnalyticMA();
+            //   analyticMA.MA(value);
 
             //double startPoint = myPlot.Axes.Bottom.Min;
             //double endPoint = myPlot.Axes.Bottom.Max;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace _16_homeWork.Objects
         /// <summary>
         /// Вывести параметра в консоль
         /// </summary>
+
         public void GetConsole() 
         {
             Console.WriteLine($"id: {id} - age: {age} - firstname: {firstname} - lastname: {lastname}");

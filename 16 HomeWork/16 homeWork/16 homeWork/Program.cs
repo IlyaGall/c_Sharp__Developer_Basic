@@ -1,6 +1,7 @@
 ﻿using _16_homeWork.ConnectionAndRequest;
 using _16_homeWork.Objects;
 using _16_homeWork.Server;
+using Npgsql;
 
 namespace _16_homeWork
 {
@@ -13,6 +14,9 @@ namespace _16_homeWork
             HelpConnectionServer helpConnectionServer = new HelpConnectionServer();
             helpConnectionServer.NameDateBase = "Shop";
             helpConnectionServer.CreateStringConnection();
+            helpConnectionServer.CreateStringConnectionDapper();
+
+            NpgsqlConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper);
 
             Request request = new Request();
 
@@ -114,14 +118,11 @@ namespace _16_homeWork
             #endregion
 
             #region запросы с доболением данных
-            AddCustomer addCustomer = new AddCustomer(11, "Test_Name", "Test_firstName");
-           // request.AddNewClient(helpConnectionServer, addCustomer);
+            request.AddNewClient(helpConnectionServer, 111, "Test_Name1", "Test_firstName22");
 
-            AddProduct addProduct = new AddProduct("Испорченный банан", "Банан для истенных ценителей", 1, 12122);
-           // request.AddNewProduct(helpConnectionServer, addProduct);
+            request.AddNewProduct(helpConnectionServer, "Испорченный банан", "Банан для истенных ценителей", 1, 12122);
 
-            AddOrder addOrder = new AddOrder(1,2,10000);
-            // request.AddNewOrder(helpConnectionServer, addOrder);
+             request.AddNewOrder(helpConnectionServer, 14,2,70000);
             #endregion
         }
     }

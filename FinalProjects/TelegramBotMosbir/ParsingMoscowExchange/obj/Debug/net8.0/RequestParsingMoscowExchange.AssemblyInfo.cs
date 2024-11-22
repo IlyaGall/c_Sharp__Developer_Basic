@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RequestParsingMoscowExchange")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16996144566316888b50f854934244342635d22d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c71e394f92c1a90a453c72dfc7f52187df6afa53")]
 [assembly: System.Reflection.AssemblyProductAttribute("RequestParsingMoscowExchange")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RequestParsingMoscowExchange")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

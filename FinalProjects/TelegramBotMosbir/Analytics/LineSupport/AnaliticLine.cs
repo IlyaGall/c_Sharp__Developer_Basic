@@ -20,13 +20,9 @@ namespace Analytics.LineSupport
             List<double> lineSuppot = new List<double>();
             List<double> lineResistance = new List<double>();
             StringBuilder sb = new StringBuilder();
-          
-         //   List<LinePoint> linePointsSupport= new List<LinePoint>();
-        //    List<LinePoint> linePointsResistance = new List<LinePoint>();
-
             Dictionary<double, LinePoint> linePointsSupport= new Dictionary<double, LinePoint>();
             Dictionary<double, LinePoint> linePointsResistance = new Dictionary<double, LinePoint>();
-
+            
             foreach (var linePoint in linePoints)
             {
                 if (linePoint.CoordinateY > candles)
@@ -41,7 +37,7 @@ namespace Analytics.LineSupport
                 }
             }
             var sortLinePointsResistance =  linePointsResistance.OrderByDescending(k => k.Key).ToDictionary();
-            var sortLinePointsSupport = linePointsSupport.OrderBy(k => k.Key).ToDictionary();//.ThenBy(fruit => fruit);
+            var sortLinePointsSupport = linePointsSupport.OrderBy(k => k.Key).ToDictionary();
 
             int step = 0;
             sb.AppendLine("Линии поддержки:\n");
