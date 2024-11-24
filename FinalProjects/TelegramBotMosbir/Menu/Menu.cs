@@ -100,7 +100,6 @@ namespace MenuProject
                         }
                         AmountElementsInNowMenu = author.Length;
                         selectedValue = 0;
-                        // Settings.GlobalParameters.Images();
                         break;
                 }
             }
@@ -313,7 +312,6 @@ namespace MenuProject
                         updateArraySetting();
                         Settings.CheckFileSetting(true);
                         Console.Clear();
-
                         PrintMenu();
                         break;
                     case 8:
@@ -382,13 +380,15 @@ namespace MenuProject
                             flagExit = true;
                         }
                         break;
-
                 }
                 WriteCursor(selectedValue);
             } while (!flagExit);
 
         }
 
+        /// <summary>
+        /// Очистка консоли 
+        /// </summary>
         private static void Clear()
         {
             Console.Clear();

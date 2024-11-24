@@ -8,19 +8,25 @@ namespace Analytics.MA
 {
     public class AnalyticMA
     {
-        public void MA(double[] value) 
+        public string MA(double[] value)
         {
-            // Пример данных (цены за дни)
-            List<double> prices = new List<double> { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
-            int period = 254; // Период для скользящей средней
-
-            List<double> movingAverages = CalculateMovingAverage(value, period);
-
-            Console.WriteLine("Скользящая Средняя (МА):");
-            foreach (var ma in movingAverages)
+            double lastValue = value[value.Count() - 1];
+            double d = value.Aggregate((x, y) => x + y) / value.Count();
+            if (lastValue > d)
             {
-                Console.WriteLine(ma);
+                return "Актив стоит больше среднего согласно методике SMA, его можно продавать\n";
+            } 
+            if (lastValue < d)
+            {
+                return "Актив стоит меньше среднего согласно методике SMA, его можно покупать\n";
             }
+            if (lastValue == d) 
+            {
+                return "О чудо! Актив стоит столько сколько согласно методике SMA,нужно подождать движения вверх или вниз!\n";
+
+            }
+            return null;
+
         }
         static List<double> CalculateMovingAverage(double[] prices, int period)
         {

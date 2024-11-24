@@ -1,70 +1,57 @@
 ﻿using Analytics.EMA;
+using Analytics.LineSupport;
 using Analytics.MA;
 using ObjectsBot;
 using ScottPlot;
 using SettingsProject;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Text;
 
 
 namespace Analytics.GraphicCreator
 {
-    internal class Creat
+    public class Creat
     {
 
-        /// <summary>
-        /// удаление всех файлов после завершения работы
-        /// </summary>
-        static public void DelAllIMGInTemp()
-        {
-            
-            DirectoryInfo dirInfo = new DirectoryInfo(Settings.GlobalParameters.PathSave);
-            foreach (FileInfo file in dirInfo.GetFiles())
-            {
-                file.Delete();
-            }
-        }
+       
 
 
         /// <summary>
-        /// построение графика Время - x, диапазон чисел y
+        /// Построение графика Время - x, диапазон чисел y
         /// </summary>
         /// <param name="directory">пусть сохранения картинки</param>
         /// <param name="nameFile">название файла</param>
         /// <param name="date">массив дат</param>
         /// <param name="value">массив значений</param>
-        static public string GraphicCreatorDateTime(string nameFile, DateTime[] date, double[] value)
+        static public (string, string) GraphicCreatorDateTime(string nameFile, DateTime[] date, double[] value)
         {
             ScottPlot.Plot myPlot = new();
-            myPlot.Add.Scatter(date, value); // x , y
+            myPlot.Add.Scatter(date, value); 
             myPlot.Axes.DateTimeTicksBottom();
-
             myPlot.Axes.Right.MinimumSize = 50;
+            StringBuilder stringBuilder = new StringBuilder();
+            Analytics.LineSupport.AnalyticLine SupportResistance = new LineSupport.AnalyticLine();
+            MethodLineSupport methodLineSupport = new MethodLineSupport();
+            List<double> lines = methodLineSupport.lineSupport2(value);
 
-            Console.WriteLine($"{myPlot.Axes.Bottom.Min} - {myPlot.Axes.Bottom.Max}");
+            foreach ( var line in lines) 
+            {
+                myPlot.Add.HorizontalLine(line);
+            }
+           
 
-            double startPoint = myPlot.Axes.Bottom.Min;
-            double endPoint = myPlot.Axes.Bottom.Max;
-
-            var axLine3 = myPlot.Add.Line(startPoint, 3019, endPoint, 3019);
-            var axLine2 = myPlot.Add.Line(startPoint, 3074, endPoint, 3074);
-            var axLine1 = myPlot.Add.Line(startPoint, 3132, endPoint, 3132);
-            var axLine4 = myPlot.Add.Line(startPoint, 3240, endPoint, 3240);
-
-            axLine1.Color = Colors.Green;
-            axLine2.Color = Colors.Green;
-            axLine3.Color = Colors.Green;
-            axLine4.Color = Colors.Green;
-
-
-            // SearchForExtremum(value);
             nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
             myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG, Settings.GlobalParameters.HeightIMG);
-
-            return $"{Settings.GlobalParameters.PathSave}\\{nameFile}";
+          
+            AnalyticMA analyticMA = new AnalyticMA();
+            analyticMA.MA(value);
+            var analytics = SupportResistance.SupportAndResistanceArray(value[value.Length - 1], lines);
+            stringBuilder.Append(analytics.Item1);
+            return ($"{Settings.GlobalParameters.PathSave}\\{nameFile}", stringBuilder.ToString());
         }
 
-        static public string GraphicCreatorDateTimeEMA(string nameFile, DateTime[] date, double[] value, double[] EMA)
+        static public (string,string) GraphicCreatorDateTimeEMA(string nameFile, DateTime[] date, double[] value, double[] EMA)
         {
             AnalyticEMA eMAAnalytic = new AnalyticEMA();
 
@@ -76,7 +63,6 @@ namespace Analytics.GraphicCreator
             myPlot.Axes.DateTimeTicksBottom();
             eMAAnalytic.AnalyticEMAData( value, EMA, date);
             AnalyticMA analyticMA =new AnalyticMA();
-
             analyticMA.MA(value);
 
             // Analytics.MA.AnalyticMA analyticMA =new Analytics.MA.AnalyticMA();
@@ -99,8 +85,9 @@ namespace Analytics.GraphicCreator
             // SearchForExtremum(value);
             nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
             myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG, Settings.GlobalParameters.HeightIMG);
-
-            return $"{Settings.GlobalParameters.PathSave}\\{nameFile}";
+            
+            
+            return ($"{Settings.GlobalParameters.PathSave}\\{nameFile}", analyticMA.MA(value));
         }
 
 
@@ -112,14 +99,18 @@ namespace Analytics.GraphicCreator
         /// <param name="linePoints"></param>
         /// <param name="nameFile"></param>
         /// <returns>1 путь к картинке, 2 анализ</returns>
-        static public (string,string) GraphicCreatorLineSupport(List<Candle> candles, List<LinePoint> linePoints, string nameFile = "за день свечки.png")
+        static public (string,string) GraphicCreatorLineSupport(List<Candle> candles, string url, string nameFile = "за день свечки.png", int interval = 1, bool lineSupport = true)
         {
+            MethodLineSupport methodLineSupport = new MethodLineSupport();
+            List<LinePoint> linePoints = methodLineSupport.lineSupport(candles);
+
             ScottPlot.Plot myPlot = new();
-            DateTime timeOpen = candles[0].Begin;// new(2024, 01, 03, 9, 30, 0); // 9:30 AM
-            DateTime timeClose = candles[candles.Count - 1].End;// new(2024, 01, 03, 16, 0, 0); // 4:00 PM
+            DateTime timeOpen = candles[0].Begin;
+            DateTime timeClose = candles[candles.Count - 1].End;
             TimeSpan timeSpan = TimeSpan.FromMinutes(
-                Convert.ToInt16(Settings.GlobalParameters.CandleInterval)
+                Convert.ToInt16(interval)
                 );
+
             List<OHLC> prices = new();
             foreach (Candle candle in candles)
             {
@@ -127,101 +118,55 @@ namespace Analytics.GraphicCreator
                 double close = candle.Close;
                 double high = candle.High;
                 double low = candle.Low;
-
                 prices.Add(new OHLC(open, high, low, close, candle.End, timeSpan));
             }
             myPlot.Add.Candlestick(prices);
             myPlot.Axes.DateTimeTicksBottom();
 
             double onePoint = myPlot.Axes.Bottom.Max - myPlot.Axes.Bottom.Min;
-            myPlot.Add.VerticalLine(264);
-            myPlot.Add.HorizontalLine(264);
+           // myPlot.Add.VerticalLine(264);
+           // myPlot.Add.HorizontalLine(264);
 
             StringBuilder stringBuilder = new StringBuilder();
-            
-            //for (int i = linePoints.Count - 1; i != linePoints.Count - 5; i--)
-            //{//Ограничения по количеству линий, берём последние 5 линий
-            //   // stringBuilder.Append(linePoints[i].CoordinateY+"\n");
-            //    var axLine3 = myPlot.Add.Line(
-            //    myPlot.Axes.Bottom.Min,
-            //           linePoints[i].CoordinateY,
-            //    myPlot.Axes.Bottom.Max,
-            //           linePoints[i].CoordinateY
-            //          );
-            //}
-          
 
-            Analytics.LineSupport.AnalyticLine SupportResistance = new LineSupport.AnalyticLine();
-            var analytics = SupportResistance.SupportAndResistance(candles[candles.Count - 1].Close, linePoints);
-            stringBuilder.Append(analytics.Item1);
-            int step = 0;
-            foreach (var lineItem in analytics.Item2.Values) 
+            if (lineSupport)
             {
-                var axLine3 = myPlot.Add.Line(
-                    myPlot.Axes.Bottom.Min,
-                          lineItem.CoordinateY,
-                    myPlot.Axes.Bottom.Max,
-                           lineItem.CoordinateY
-                          );
-                step++;
-                if (step > 5) 
+                Analytics.LineSupport.AnalyticLine SupportResistance = new LineSupport.AnalyticLine();
+
+                var analytics = SupportResistance.SupportAndResistance(candles[candles.Count - 1].Close, linePoints);
+                stringBuilder.Append(analytics.Item1);
+                int step = 0;
+                foreach (var lineItem in analytics.Item2.Values)
                 {
-                    break;
-                 
+                    var axLine3 = myPlot.Add.Line(
+                        myPlot.Axes.Bottom.Min,
+                              lineItem.CoordinateY,
+                        myPlot.Axes.Bottom.Max,
+                               lineItem.CoordinateY
+                              );
+                    step++;
+                    if (step > 5)
+                    {
+                        break;
+
+                    }
+                }
+                step = 0;
+                foreach (var lineItem in analytics.Item3.Values)
+                {
+                    var axLine3 = myPlot.Add.Line(
+                        myPlot.Axes.Bottom.Min,
+                              lineItem.CoordinateY,
+                        myPlot.Axes.Bottom.Max,
+                               lineItem.CoordinateY
+                              );
+                    step++;
+                    if (step > 5)
+                    {
+                        break;
+                    }
                 }
             }
-            step = 0;
-            foreach (var lineItem in analytics.Item3.Values)
-            {
-                var axLine3 = myPlot.Add.Line(
-                    myPlot.Axes.Bottom.Min,
-                          lineItem.CoordinateY,
-                    myPlot.Axes.Bottom.Max,
-                           lineItem.CoordinateY
-                          );
-                step++;
-                if (step > 5)
-                {
-                    break;
-                }
-            }
-            //for (int i = analitcs.Item2.Count - 1; i != analitcs.Item2.Count - 5; i--)
-            //{//Ограничения по количеству линий, берём последние 5 линий
-            // // stringBuilder.Append(linePoints[i].CoordinateY+"\n");
-            //    var axLine3 = myPlot.Add.Line(
-            //    myPlot.Axes.Bottom.Min,
-            //           linePoints[i].CoordinateY,
-            //    myPlot.Axes.Bottom.Max,
-            //           linePoints[i].CoordinateY
-            //          );
-            //}
-            //foreach (var linePoint in linePoints)
-            //{
-
-            //    if (linePoint.CoordinateY > candles[candles.Count - 1].Close)
-            //    {
-            //        lineSuppot.Add(linePoint.CoordinateY);
-
-            //    }
-            //    else 
-            //    {
-            //        lineResistance.Add(linePoint.CoordinateY);
-
-            //    }
-
-
-
-            //    //var axLine3 = myPlot.Add.Line(
-            //    //    myPlot.Axes.Bottom.Min,
-            //    //    linePoint.CoordinateY,
-            //    //    myPlot.Axes.Bottom.Max,
-            //    //    linePoint.CoordinateY
-            //    //   );
-            //}
-
-
-
-
             nameFile = nameFile.Insert(nameFile.LastIndexOf('.'), Guid.NewGuid().ToString());
             myPlot.SavePng($"{Settings.GlobalParameters.PathSave}\\{nameFile}", Settings.GlobalParameters.WithIMG, Settings.GlobalParameters.HeightIMG);
             return ($"{Settings.GlobalParameters.PathSave}\\{nameFile}", stringBuilder.ToString());
@@ -241,8 +186,8 @@ namespace Analytics.GraphicCreator
         static public string GraphicCreateStock(List<Candle> candles, string nameFile = "за день свечки.png")
         {
             ScottPlot.Plot myPlot = new();
-            DateTime timeOpen = candles[0].Begin;// new(2024, 01, 03, 9, 30, 0); // 9:30 AM
-            DateTime timeClose = candles[candles.Count - 1].End;// new(2024, 01, 03, 16, 0, 0); // 4:00 PM
+            DateTime timeOpen = candles[0].Begin;
+            DateTime timeClose = candles[candles.Count - 1].End;
             TimeSpan timeSpan = TimeSpan.FromMinutes(
                 Convert.ToInt16(Settings.GlobalParameters.CandleInterval)
                 );
@@ -253,7 +198,6 @@ namespace Analytics.GraphicCreator
                 double close = candle.Close;
                 double high = candle.High;
                 double low = candle.Low;
-
                 prices.Add(new OHLC(open, high, low, close, candle.End, timeSpan));
             }
             myPlot.Add.Candlestick(prices);

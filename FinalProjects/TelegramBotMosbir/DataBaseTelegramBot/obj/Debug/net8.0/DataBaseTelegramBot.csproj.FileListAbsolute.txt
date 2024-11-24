@@ -23,3 +23,6 @@ C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTeleg
 C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\refint\DataBaseTelegramBot.dll
 C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBaseTelegramBot.pdb
 C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\ref\DataBaseTelegramBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\ObjectsBot.dll
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\bin\Debug\net8.0\ObjectsBot.pdb
+C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\DataBaseTelegramBot\obj\Debug\net8.0\DataBase.0F98EAAE.Up2Date

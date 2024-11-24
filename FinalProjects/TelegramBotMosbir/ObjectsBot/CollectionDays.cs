@@ -17,7 +17,7 @@ namespace ObjectsBot
         public static Dictionary<int, WeekDay> CollectionWeekDay = new();
 
         /// <summary>
-        /// Празничные дни мосбиржи
+        /// Праздничные дни мосбиржи
         /// </summary>
         public static Dictionary<DateTime, DailyTable> CollectionHollyDay = new();
 

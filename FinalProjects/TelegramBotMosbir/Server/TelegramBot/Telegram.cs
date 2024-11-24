@@ -6,6 +6,8 @@ using Telegram.Bot.Types.ReplyMarkups;
 using System.ComponentModel.DataAnnotations; // кнопки телеграмма в чате
 using DataBaseTelegramBot;
 using ObjectsBot;
+using RequestParsingMoscowExchange.ListRequest;
+using RequestParsingMoscowExchange.Parsing;
 
 namespace Server.TelegramBot
 {
@@ -42,10 +44,6 @@ namespace Server.TelegramBot
                     },
                     new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("тестирование ф-и", "test"),
-                    },
-                    new[]
-                    {
                         InlineKeyboardButton.WithCallbackData("Добавить акцию в избранное", "/AddFavorites"),
                     },
                     new[]
@@ -64,6 +62,8 @@ namespace Server.TelegramBot
             var botClient = new TelegramBotClient(Settings.GlobalParameters.Token);
             botClient.StartReceiving(clientUpdate, Error);
             Console.WriteLine($"server start. {DateTime.Now}");
+            RequestParsingMoscowExchange.Parsing.ParserXML.LoadDay();
+            RequestParsingMoscowExchange.Parsing.ParserXML.LoadHoliday();
             Console.ReadLine();
         }
 
@@ -93,10 +93,6 @@ namespace Server.TelegramBot
                         await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {objectAnalytics.Description}");
                         await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
                         break;
-                    //case "/ListCommand":
-                    //    text = "Список команд:";
-                    //    await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
-                    //    break;
                     case "/indexMB30Day":
                         objectAnalytics = Server.Commands.Server.ServerCommand("/indexMB30Day", objectAnalytics, "");
                         await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
@@ -107,49 +103,34 @@ namespace Server.TelegramBot
                         break;
 
                     case "test":
-
-                        //await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {getAnswer.Item1}");
-                        //if (getAnswer.Item2 != null)
-                        //{
-                        //    int stepCollection = 0;
-                        //    foreach (string pathImg in getAnswer.Item2)
-                        //    {
-                        //        if (getAnswer.Item3 != null && getAnswer.Item3[stepCollection] != null)
-                        //        {
-                        //            await loadPhoto(botClient, userId, pathImg, getAnswer.Item3[stepCollection]);
-                        //        }
-                        //        else
-                        //        {
-                        //            await loadPhoto(botClient, userId, pathImg, "");
-                        //        }
-                        //    }
-                        //}
                         break;
                     case "/AddFavorites":
                         text = "Для того чтобы добавить акцию в избранное, нужно написать команду:'/AddFavorites название акции'";
+                        DataBaseTelegramBot.DataBase dataBase = new DataBaseTelegramBot.DataBase();
+
+                        if(!dataBase.checkUser(userId))
+                        { 
+                            dataBase.addUser(userId,  update.CallbackQuery.From.FirstName , update.CallbackQuery.From.LastName, update.CallbackQuery.From.Username);
+                        }
+
                         await botClient.SendTextMessageAsync(userId, text);
                         break;
 
                     case "/GetFavoritesStocks":
+                        List<string> list = DataBase.GetStockListUser(userId);
+                        if (list.Count == 0) 
+                        {
+                            await botClient.SendTextMessageAsync(userId, "У вас нет избранных активов!");
+                            return;
+                        }
                         foreach (var nameActive in DataBase.GetStockListUser(userId))
                         {
-                            objectAnalytics = Server.Commands.Server.ServerCommand("/GetFavoritesStocks", objectAnalytics, nameActive);
+                            objectAnalytics = Server.Commands.Server.ServerCommand("/GetFavoritesStocks", objectAnalytics, nameActive.Replace(" ",""));
                             if (objectAnalytics.PathImg?.Count != 0)
                             {
                                 int stepCollection = 0;
-                              //  foreach (string pathImg in objectAnalytics.PathImg)
-                               // {
-                                    //if (objectAnalytics.DescriptionImg?.Count == 0 && objectAnalytics.DescriptionImg[stepCollection]!=null)
-                                    //{
-                                    ////    await loadPhoto(botClient, userId, pathImg, objectAnalytics.DescriptionImg[stepCollection]);
-                                    //    await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
-                                    //}
-                                    //else
-                                    //{
-                                    //   // await loadPhoto(botClient, userId, pathImg, "");
-                                        await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
-                                  //  }
-                                //}
+                                await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
+                               
                             }
                             objectAnalytics.Clear();
                         }
@@ -165,8 +146,21 @@ namespace Server.TelegramBot
                 var messageTelegram = message.Text?.ToString()?.Split(' ');
                 switch (messageTelegram[0])
                 {
+                    case "/UpdateBDStock":
+                        if (userId == 941692237)
+                        {
+                            List<UpdateStockBd> BDStock = ParserXML.ParsingMoscowExchange(RequestCommand.QueryGetFullStock());
+                            DataBase.UpsetStock(BDStock);
+                            await botClient.SendTextMessageAsync(userId, @"Бд акций обновлена!");
+                        }
+                        else 
+                        {
+                            await botClient.SendTextMessageAsync(userId, @"У вас не достаточно прав!!!");
+                        }
+                        break;
+
                     case "/AddFavorites":
-                        DataBase.addUser(userId);
+                        
                         //DataBase.AddFavoritesStock(userId, messageTelegram[1]);
                         break;
                     case "/info":

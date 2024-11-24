@@ -102,7 +102,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj": {
+                "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

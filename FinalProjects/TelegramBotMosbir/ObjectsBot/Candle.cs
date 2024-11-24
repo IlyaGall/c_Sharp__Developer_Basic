@@ -53,8 +53,14 @@ namespace ObjectsBot
             Low = Convert.ToDouble(low?.Replace('.', ','));
             Value = Convert.ToDouble(value?.Replace('.', ','));
             Volume = Convert.ToDouble(volume?.Replace('.', ','));
-            Begin = Convert.ToDateTime(begin);
-            End = Convert.ToDateTime(end);
+            if (begin != null) 
+            {
+                Begin = Convert.ToDateTime(begin);
+            }
+            if (End != null)
+            {
+                End = Convert.ToDateTime(end);
+            }
         }
 
     }

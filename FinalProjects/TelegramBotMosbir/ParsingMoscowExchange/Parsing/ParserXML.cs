@@ -27,11 +27,11 @@ namespace RequestParsingMoscowExchange.Parsing
                     {
                         foreach (XmlNode childNode1 in childNode.ChildNodes)
                         {
-                            CollectionDays.CollectionWeekDay.Add(Convert.ToInt32(childNode1?.Attributes?[0].InnerText),
+                            CollectionDays.CollectionWeekDay.Add(Convert.ToInt32(childNode1?.Attributes?["week_day"].InnerText),
                             new WeekDay(
-                                childNode1?.Attributes?[1].InnerText,
-                                Convert.ToDateTime(childNode1?.Attributes?[2].InnerText),
-                                Convert.ToDateTime(childNode1?.Attributes?[3].InnerText)
+                                childNode1?.Attributes?["is_work_day"].InnerText,
+                                Convert.ToDateTime(childNode1?.Attributes?["start_time"].InnerText),
+                                Convert.ToDateTime(childNode1?.Attributes?["stop_time"].InnerText)
                                 )
                             );
                         }
@@ -39,6 +39,7 @@ namespace RequestParsingMoscowExchange.Parsing
                 }
             }
         }
+     
         /// <summary>
         /// Загрузка каникул мосбиржи
         /// </summary>
@@ -57,11 +58,12 @@ namespace RequestParsingMoscowExchange.Parsing
                     {
                         foreach (XmlNode childNode1 in childNode.ChildNodes)
                         {
-                            CollectionDays.CollectionHollyDay.Add(Convert.ToDateTime(childNode1?.Attributes?[0].InnerText),
+                            CollectionDays.CollectionHollyDay.Add(
+                                Convert.ToDateTime(childNode1?.Attributes?["date"].InnerText),
                             new DailyTable(
-                                childNode1?.Attributes?[1].InnerText,
-                                childNode1?.Attributes?[2].InnerText,
-                                childNode1?.Attributes?[3].InnerText
+                                childNode1?.Attributes?["is_work_day"].InnerText,
+                                childNode1?.Attributes?["start_time"].InnerText,
+                                childNode1?.Attributes?["stop_time"].InnerText
                                 )
                             );
                         }
@@ -69,107 +71,51 @@ namespace RequestParsingMoscowExchange.Parsing
                 }
             }
         }
-        
 
         /// <summary>
-        /// Распрасить данные из json (для заполнения бд  DataStock)
-        /// </summary>
-        /// <param name="json">файл json</param>
-        /// <param name="items">коллекция класса List<DataBase.DataStock></param>
-        //static public List<DataBase.DataStock> Parsing(string json, List<DataBase.DataStock> items)
-        //{
-
-        //    XmlDocument xDoc = new XmlDocument();
-        //    xDoc.LoadXml(json);
-        //    XmlElement? xRoot = xDoc.DocumentElement;
-        //    if (xRoot != null)
-        //    {
-        //        // обход всех узлов в корневом элементе
-        //        foreach (XmlElement xnode in xRoot)
-        //        {
-        //            // получаем атрибут name
-        //            XmlNode? attr = xnode.Attributes.GetNamedItem("row");
-        //            Console.WriteLine(attr?.Value);
-
-        //            // обходим все дочерние узлы элемента user
-        //            foreach (XmlNode childNode in xnode.ChildNodes)
-        //            {
-        //                foreach (XmlNode childNode1 in childNode.ChildNodes)
-        //                {
-        //                    DataBase.DataStock item = new DataBase.DataStock();
-        //                    PropertyInfo[] properties = typeof(DataBase.DataStock).GetProperties(); // получение свойства класса
-        //                    Type t = typeof(DataBase.DataStock); // https://learn.microsoft.com/en-us/dotnet/api/system.reflection.propertyinfo.propertytype?view=net-8.0
-
-
-        //                    for (int i = 0; i < childNode1?.Attributes?.Count; i++)
-        //                    {
-        //                        Console.Write($"{childNode1.Attributes[i].InnerText} {childNode1.Attributes[i].LocalName} ");
-
-        //                        switch (t.GetProperties()[i].PropertyType.Name)
-        //                        {
-        //                            case "String":
-        //                                properties[i].SetValue(item, childNode1.Attributes[i].Value);
-        //                                break;
-        //                            case "Double":
-        //                                properties[i].SetValue(item, Convert.ToDouble(childNode1.Attributes[i].Value.Replace(".", ",")));
-        //                                break;
-        //                            case "Int16":
-        //                                properties[i].SetValue(item, Convert.ToInt16(childNode1.Attributes[i].Value));
-        //                                break;
-        //                            case "Int32":
-        //                                properties[i].SetValue(item, Convert.ToInt32(childNode1.Attributes[i].Value));
-        //                                break;
-        //                            case "Int64":
-        //                                properties[i].SetValue(item, Convert.ToInt64(childNode1.Attributes[i].Value));
-        //                                break;
-        //                            default:
-        //                                throw new Exception($"Не известный тип данных {t.GetProperties()[i].PropertyType.Name}");
-        //                        }
-        //                    }
-        //                    Console.WriteLine("", "");
-        //                    items.Add(item);
-        //                }
-        //            }
-        //            Console.WriteLine();
-        //        }
-        //    }
-        //    return items;
-        //}
-
-
-
-        /// <summary>
-        /// Проверить дату, что запрос вернёт не пустой запрос, так как мосбиржа не рабоает
+        /// Получение всех акций и их расшифровка
         /// </summary>
         /// <param name="url"></param>
-        /// <returns></returns>
-        static public bool CheckedDateXML(string url)
+        static public List<UpdateStockBd> ParsingMoscowExchange(string url) 
         {
-            bool flag = false;
-            string xml = Request.RequestServer(url);
+            List<UpdateStockBd> updateStockBds = new List<UpdateStockBd>();
+
+            XDocument xmlDoc = new XDocument();
             XmlDocument xDoc = new XmlDocument();
-            xDoc.LoadXml(xml);
+            xDoc.LoadXml(Request.request(url));
+            // Извлекаем данные о securities
+            var securities = xmlDoc.Descendants("security");
             XmlElement? xRoot = xDoc.DocumentElement;
-            if (xRoot != null)
+            foreach (XmlElement xNode in xRoot)
             {
-                // обход всех узлов в корневом элементе
-                foreach (XmlElement xNode in xRoot)
+                foreach (XmlNode childNode in xNode.ChildNodes)
                 {
-                    // получаем атрибут name
-                    XmlNode? attr = xNode.Attributes.GetNamedItem("id");
-                    Console.WriteLine(attr?.Value);
-                    foreach (XmlNode childNode in xNode.ChildNodes)
+                    foreach (XmlNode childNode1 in childNode.ChildNodes)
                     {
-                        foreach (XmlNode childNode1 in childNode.ChildNodes)
+                        if (childNode1.LocalName == "row")
                         {
-                            flag = true;
+
+                            updateStockBds.Add(
+                              new UpdateStockBd(
+                                childNode1?.Attributes?["SECID"].InnerText,
+                                childNode1?.Attributes?["SHORTNAME"].InnerText,
+                                childNode1?.Attributes?["PREVPRICE"].InnerText,
+                                childNode1?.Attributes?["LOTSIZE"].InnerText,
+                                childNode1?.Attributes?["ISIN"].InnerText
+                             )
+                              );
+
                         }
                     }
                 }
             }
 
-            return flag;
+            return updateStockBds;
         }
+    
+
+
+
 
 
         static private Dictionary<DateTime, double> parsingXML(Dictionary<DateTime, double> items, XmlElement xNode, bool visibleTeg = false)
@@ -361,14 +307,53 @@ namespace RequestParsingMoscowExchange.Parsing
         }
 
 
-        /// <summary>
-        /// проверить, данные на превышение 500 значений в запросе
-        /// </summary>
-        /// <returns></returns>
-        private static bool DataVerificationCandle(string request)
-        {
 
-            return false;
+        /// <summary>
+        /// Парсинг xml для московской биржи
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public static List<Candle> passingXMLMoscowExchange(string request)
+        {
+            List<Candle> candles = new List<Candle>();
+            bool flagStop = false;
+            int startRow = 0;
+            while (!flagStop)
+            {
+                flagStop = true;
+                string xml = Request.RequestServer(request + $"&start={startRow.ToString()}");
+                XmlDocument xDoc = new XmlDocument();
+                xDoc.LoadXml(xml);
+                XmlElement? xRoot = xDoc.DocumentElement;
+                foreach (XmlElement xNode in xRoot)
+                {
+                    foreach (XmlNode childNode in xNode.ChildNodes)
+                    {
+                        foreach (XmlNode childNode1 in childNode.ChildNodes)
+                        {
+                            if (childNode1.LocalName == "row")
+                            {
+                                flagStop = false;
+                                candles.Add(
+                                    new Candle(
+                                        childNode1?.Attributes?["OPEN"].InnerText,
+                                        childNode1?.Attributes?["CLOSE"].InnerText,
+                                        childNode1?.Attributes?["HIGH"].InnerText,
+                                        childNode1?.Attributes?["LOW"].InnerText,
+                                        childNode1?.Attributes?["VALUE"].InnerText,
+                                        null,
+                                        childNode1?.Attributes?["TRADEDATE"].InnerText,
+                                        childNode1?.Attributes?["TRADEDATE"].InnerText
+                                    )
+                                );
+                            }
+                        }
+                    }
+                }
+                startRow += 100;
+                Console.WriteLine("ParserXML: " + startRow);
+            }
+            return candles;
         }
 
 
@@ -401,14 +386,14 @@ namespace RequestParsingMoscowExchange.Parsing
 
                                 candles.Add(
                                     new Candle(
-                                        childNode1?.Attributes?[0].InnerText,
-                                        childNode1?.Attributes?[1].InnerText,
-                                        childNode1?.Attributes?[2].InnerText,
-                                        childNode1?.Attributes?[3].InnerText,
-                                        childNode1?.Attributes?[4].InnerText,
-                                        childNode1?.Attributes?[5].InnerText,
-                                        childNode1?.Attributes?[6].InnerText,
-                                        childNode1?.Attributes?[7].InnerText
+                                        childNode1?.Attributes?["open"].InnerText,
+                                        childNode1?.Attributes?["close"].InnerText,
+                                        childNode1?.Attributes?["high"].InnerText,
+                                        childNode1?.Attributes?["low"].InnerText,
+                                        childNode1?.Attributes?["value"].InnerText,
+                                        childNode1?.Attributes?["volume"].InnerText,
+                                        childNode1?.Attributes?["begin"].InnerText,
+                                        childNode1?.Attributes?["end"].InnerText
                                     )
                                 );
                             }

@@ -65,6 +65,16 @@
             "related": ".xml"
           }
         }
+      },
+      "ObjectsBot/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ObjectsBot.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ObjectsBot.dll": {}
+        }
       }
     }
   },
@@ -217,12 +227,18 @@
         "npgsql.nuspec",
         "postgresql.png"
       ]
+    },
+    "ObjectsBot/1.0.0": {
+      "type": "project",
+      "path": "../ObjectsBot/ObjectsBot.csproj",
+      "msbuildProject": "../ObjectsBot/ObjectsBot.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Dapper >= 2.1.35",
-      "Npgsql >= 8.0.5"
+      "Npgsql >= 8.0.5",
+      "ObjectsBot >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -252,7 +268,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj": {
+              "projectPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ObjectsBot\\ObjectsBot.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

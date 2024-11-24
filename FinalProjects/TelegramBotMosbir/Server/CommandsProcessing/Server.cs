@@ -2,6 +2,7 @@
 using RequestParsingMoscowExchange.ListRequest;
 using Server.TelegramBot;
 using Analytics;
+using RequestParsingMoscowExchange.Parsing;
 
 namespace Server.Commands
 {
@@ -21,16 +22,11 @@ namespace Server.Commands
             // string? command = Console.ReadLine();
             switch (command)
             {
-                case "LoadDayWorkMoscowExchange":
-
-                    break;
-
                 case "/info":
                     objectAnalytics.Description = RequestCommand.info();
                     return objectAnalytics;
-                   // return (objectAnalytics. RequestCommand.info(), null, null);
-                case "/exit":
-                    exit = true;
+                //case "/exit":
+                //    exit = true;
                     break;
                 case "/indexMB30Day": // индекс московской биржи за 30 дней
                      Analytics.Main.AnalyticMoscowExchangeActive(
@@ -47,36 +43,20 @@ namespace Server.Commands
 
                 case "/AddFavorites":
                     break;
-                case "test":// получить акцию
-                    //return Analytic.AnalyticMoscowExchangeActive(
-                    //    url: RequestCommand.QueryCandle(
-                    //        ),
-                    //    nameStock: "Сбербанк"
-                    //    );
 
                 case "/GetFavoritesStocks":// получить акцию
-                                           //    RequestParsingMoscowExchange.Parsing.ParserXML.LoadDay();
-                                           //     RequestParsingMoscowExchange.Parsing.ParserXML.LoadHoliday();
-
                     var s = RequestCommand.QueryCandle(nameActive: nameActive);
-
                     Analytics.Main.AnalyticMoscowExchangeActive(
                         url: RequestCommand.QueryCandle(nameActive: nameActive),
                         objectAnalytics,
                         nameStock: nameActive);
                     return objectAnalytics;
-
-                    //return Analytic.AnalyticMoscowExchangeActive(
-                    //    url: RequestCommand.QueryCandle(
-                    //        nameActive: nameActive
-                    //        ),
-                    //nameStock: nameActive
-                    //    );
                 case "/получить всё акции":
                 //    Request.quest("вернуть все акции за сегодняшний день", RequestCommand.QueryStatisticAll());
                     break;
-                case "/обновить бд":
-                  //  Request.quest("Обновить бд DataStock", RequestCommand.QueryGetAllAction());
+                case "/UpdateBDStock":
+                    List<UpdateStockBd> BDStock = ParserXML.ParsingMoscowExchange(RequestCommand.QueryGetFullStock());
+                  //  DataBaseTelegramBot 
                     break;
                 case "/получение свечи":
                   //  Request.quest("Обновить бд DataStock", RequestCommand.QueryCandle());
@@ -102,30 +82,7 @@ namespace Server.Commands
                         }
                     }
                     break;
-                case "test1":// для быстрого тестирования
 
-                //    return Analytic.AnalyticMoscowExchangeActive(RequestCommand.QueryCandle());
-
-                //    TelegramBotMessage.SendMessage("Введите даты. Две даты через пробел, например 2024-09-23 2024-10-28\n если этого не сделать, то по умолчанию будут взята текущая дата");
-                //    //  data = Console.ReadLine();
-                //    data = "1996-01-01 2024-07-21";
-                //    if (string.IsNullOrEmpty(data))
-                //    {
-                //        Request.quest("индекс мосбиржи", RequestCommand.QueryGetMoscowExchange());
-                //    }
-                //    else
-                //    {
-                //        var splitDate = data.Split(' ');
-                //        if (splitDate.Length == 2)
-                //        {
-                //            Request.quest("индекс мосбиржи", RequestCommand.QueryGetMoscowExchange(data.Split(' ')[0], data.Split(' ')[1]));
-                //        }
-                //        else
-                //        {
-                //            ErrorProcessing.generateTextError($"Вы ввели не правильный формат данных ''{data}'', а требовалось ''2024-09-23 2024-10-28''");
-                //        }
-                //    }
-                //    break;
 
 
 

@@ -217,7 +217,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Dapper": "2.1.35",
-          "Npgsql": "8.0.5"
+          "Npgsql": "8.0.5",
+          "ObjectsBot": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DataBaseTelegramBot.dll": {}

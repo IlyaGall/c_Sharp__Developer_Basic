@@ -12,7 +12,7 @@ namespace RequestParsingMoscowExchange.ListRequest
         {
 
             DateTime date = DateTime.Now.AddDays(day);
-            return date.ToString();
+            //return date.ToString();
 
             //DateTime dateTime = new DateTime(2018, 05, 09);
             for (int i = 0; i < 30; i++) 
@@ -23,12 +23,14 @@ namespace RequestParsingMoscowExchange.ListRequest
                 {
                     if (CollectionDays.CollectionHollyDay[date].IsWorkDay) 
                     {//если праздничный день, рабочий, например, 02.11.2024
-                        return date.ToString();
+                        return date.ToString("yyyy-MM-dd");
                     }
                 }
-                if (CollectionDays.CollectionWeekDay[Convert.ToInt32(date.DayOfWeek)].IsWorkDay) 
+                int dayOfWeek = Convert.ToInt32(date.DayOfWeek) == 0 ? 7: Convert.ToInt32(date.DayOfWeek);
+
+                if (CollectionDays.CollectionWeekDay[dayOfWeek].IsWorkDay) 
                 {
-                    return date.ToString();
+                    return date.ToString("yyyy-MM-dd");
                 }
                
 
@@ -65,33 +67,6 @@ namespace RequestParsingMoscowExchange.ListRequest
            
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="date"></param>
-        /// <param name="url"></param>
-        /// <returns></returns>
-        static private string CheckHoliday(string url) 
-        {
-       
-            bool flag =  ParserXML.CheckedDateXML(url);
-            int stepDay = 0;
-            string newRequst = "";
-            while (!flag) 
-            {
-                stepDay--;
-                newRequst = QueryCandle(url, stepDay);
-                flag = ParserXML.CheckedDateXML(newRequst);
-                if (stepDay < -60) 
-                {
-                    return "";
-                }
-            }
-            return newRequst;
-        }
-
-
-
-        /// <summary>
         /// Вернуть информацию по запросу
         /// </summary>
         /// <returns></returns>
@@ -125,24 +100,29 @@ namespace RequestParsingMoscowExchange.ListRequest
 
 
         /// <summary>
+        /// Получить всё акции для записи в бд
+        /// </summary>
+        /// <returns></returns>
+        static public string QueryGetFullStock() => @"https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities.xml?iss.meta=off&iss.only=securities&securities.columns=SECID,SHORTNAME,PREVPRICE,LOTSIZE,ISIN";
+
+        /// <summary>
         /// Получение свечи за 1 день
         /// </summary>
-        /// <param name="nameActive">название актива, например SBER</param>
+        /// <param name="nameActive">Название актива, например SBER</param>
         /// <param name="addDays">Количество дней</param>
       
         ///  где "interval"интервал свечи (минуты) - задаться через настройки
         /// <returns></returns>
-        static public string QueryCandle(string nameActive = "SBER")
-        {
-            var sdds= $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dateTime()}&till={dateTime()}&interval={Settings.GlobalParameters.CandleInterval}";
-            return sdds;
+        static public string QueryCandle(string nameActive = "SBER")=>
+                     $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={CorrectDateWorkMoscowExchange()}&till={CorrectDateWorkMoscowExchange()}&interval={Settings.GlobalParameters.CandleInterval}";
 
-            string request = $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dateTime()}&till={dateTime()}&interval={Settings.GlobalParameters.CandleInterval}";
-            CorrectDateWorkMoscowExchange();
-
-              request = CheckHoliday(request);
-            return request;
-        }
+        /// <summary>
+        /// Запрос актива за 1 год
+        /// </summary>
+        /// <param name="NameActive">Название актива, например SBER</param>
+        /// <returns></returns>
+        static public string QueryCandleYear(string NameActive= "SBER") =>
+            $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{NameActive}/candles.xml?iss.meta=off&from={dateTime(-364)}&till={CorrectDateWorkMoscowExchange()}&interval=10";
 
         static public string QueryCandle(string nameActive = "SBER", int addDays = 0)
         {
@@ -152,7 +132,7 @@ namespace RequestParsingMoscowExchange.ListRequest
 
 
         /// <summary>
-        /// получение свечи
+        /// Получение свечи
         /// </summary>
         /// <param name="nameActive">название актива, например SBER</param>
         /// <param name="dataStart">дата начала торгов (год-месяц-день)</param>
@@ -178,27 +158,28 @@ namespace RequestParsingMoscowExchange.ListRequest
             => @"http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json";
       
 
-        /// <summary>
-        /// Получить акции с наименованием и тикером для заполнения БД
-        /// </summary>
-        /// <returns></returns>
-        static public string QueryGetAllAction()
-           => @"https://iss.moex.com/iss/engines/stock/markets/shares/boards/tqbr/securities.xml?iss.meta=off&iss.only=securities&securities.columns=SECID,PREVPRICE,SHORTNAME";
+        ///// <summary>
+        ///// Получить акции с наименованием и тикером для заполнения БД
+        ///// </summary>
+        ///// <returns></returns>
+        //static public string QueryGetAllAction()
+        //   => @"https://iss.moex.com/iss/engines/stock/markets/shares/boards/tqbr/securities.xml?iss.meta=off&iss.only=securities&securities.columns=SECID,PREVPRICE,SHORTNAME";
        
         /// <summary>
         /// Вернуть индекс московской биржи(за 30 дней)
         /// </summary>
         /// <returns></returns>
         static public string QueryGetMoscowExchange()
-            => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from={dateTime(-30)}&till={dateTime()}";
+         //   => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from={dateTime(-30)}&till={dateTime()}";
+              => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE,OPEN,HIGH,LOW,VALUE&from={dateTime(-31)}&till={dateTime()}";
 
         /// <summary>
         /// Вернуть индекс московской биржи(за год)
         /// </summary>
         /// <returns></returns>
-        static public string QueryGetMoscowExchangeYear() 
-            =>  $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dateTime(-364)}&till={dateTime()}";
-        
+        static public string QueryGetMoscowExchangeYear()
+              //  =>  $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dateTime(-364)}&till={dateTime()}";
+              => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE,OPEN,HIGH,LOW,VALUE&from={dateTime(-364)}&till={dateTime()}";
         /// <summary>
         /// Индекс мосбиржи
         /// </summary>

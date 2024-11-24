@@ -1,11 +1,17 @@
 ﻿using Dapper;
 using Npgsql;
 using System.Data;
+using Npgsql;
 
 namespace DataBaseTelegramBot.ConnectionAndRequest
 {
     internal class Request
     {
+
+
+
+    
+
         #region работа с бд user
         /// <summary>
         /// Добавить нового клиента
