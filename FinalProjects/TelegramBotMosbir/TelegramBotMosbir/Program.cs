@@ -6,6 +6,10 @@ namespace MainProject
 {
     internal class Program
     {
+        /// <summary>
+        /// Старт приложения
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             start();

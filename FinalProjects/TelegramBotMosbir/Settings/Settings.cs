@@ -38,7 +38,7 @@ namespace SettingsProject
         }
 
         /// <summary>
-        /// проверить на существование директории в случае её отсутствия создать папку
+        /// Проверить на существование директории в случае её отсутствия создать папку
         /// </summary>
         static private bool exitsFolder(string path)
         {
@@ -61,7 +61,7 @@ namespace SettingsProject
         }
 
         /// <summary>
-        /// проверка, что директория и файл существуют в системе
+        /// Проверка, что директория и файл существуют в системе
         /// </summary>
         /// <param name="replaceFileSettings">сбросить настройки по умолчанию (false)</param>
         static public void CheckFileSetting(bool replaceFileSettings = false)
@@ -92,8 +92,6 @@ namespace SettingsProject
         /// </summary>
         private class SettingJson
         {
-     
-
             /// <summary>
             /// Версия ПО
             /// </summary>

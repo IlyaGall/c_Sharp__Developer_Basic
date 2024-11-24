@@ -7,14 +7,14 @@ namespace RequestParsingMoscowExchange.ListRequest
 {
     public static class RequestCommand
     {
-
+        /// <summary>
+        /// Проверка, что в этот день московская биржа работает
+        /// </summary>
+        /// <param name="day">Количество дней, которые нужно прибавить или отнять</param>
+        /// <returns></returns>
         static private string CorrectDateWorkMoscowExchange(int day = 0) 
         {
-
             DateTime date = DateTime.Now.AddDays(day);
-            //return date.ToString();
-
-            //DateTime dateTime = new DateTime(2018, 05, 09);
             for (int i = 0; i < 30; i++) 
             {
                 date = DateTime.Now.AddDays(day - i);
@@ -32,18 +32,10 @@ namespace RequestParsingMoscowExchange.ListRequest
                 {
                     return date.ToString("yyyy-MM-dd");
                 }
-               
-
             }
-
-
-            //;  CollectionDays.CollectionWeekDay
-
-
             return "";
         }
-
-
+      
         /// <summary>
         /// Расписание рабочих дней
         /// </summary>
@@ -58,7 +50,6 @@ namespace RequestParsingMoscowExchange.ListRequest
         static public string DailyTable()
             => "https://iss.moex.com/iss/engines/stock.xml?iss.meta=off&iss.only=dailytable";
 
-
         /// <summary>
         /// Вспомогательный метод для расчёта даты
         /// </summary>
@@ -71,32 +62,29 @@ namespace RequestParsingMoscowExchange.ListRequest
         /// </summary>
         /// <returns></returns>
         static public string info() 
-            => $"/command QUERYLastPrice вернуть последнюю цену по акциям\n" +
-                $"/command QUERY2 вернуть последнюю цену по акциям расширенное наименование\n" +
-                $"/command QuerySearchName \n" +
-                $"/command QueryCandle вернуть свечи\n" +
-                $"/command QueryStatisticAll вернуть все акции\n" +
-                "/exit выход\n" +
-                "/обновить бд - Обновить бд, где храниться весь список не избранных акций\n" +
-                "/получение свечи\n" +
-                "/индекс мосбиржи";
-      
-        /// <summary>
-        /// Вернуть последнюю цену по всем акциям
-        /// </summary>
-        static public string QUERYLastPrice() => "https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities.xml?iss.meta=off&iss.only=marketdata&marketdata.columns=SECID,LAST";
+            => "Здравствуйте, я бот.\n\n" +
+                "Я умею делать:\n\n" +
+                "1) Показывать индекс московской биржи за 30 дней, а так же за 1 год\n\n" +
+                "2) Делать простой анализ, включая SMA,EMA а так же искать линии поддержки и сопротивления по акциям и московской бирже.\n\n" +
+                "3) С помощь команды /AddFavorites можно добавить актив в избранно и я запомню его, если вы напишите secid правильно!\n" +
+                 "Например:\n /AddFavorites SBER\n\n" +
+                "4) С помощь команды /getStock можно посмотреть статистику акции и без добавление в избранное LKOH\n" +
+                "Например:\n /getStock LKOH\n\n" +
+                "5) С помощь команды /UpdateBDStock доступна только моему создателю и я не скажу для чего она! \n\n" +
+                
+                "Если вам, что-то понадобиться по мимо текущего функционала, можете написать разработчику на почту ilyagall01@gmail.com, но помните, любая доработка будет на коммерческой основе.\n\n" +
+                "Хорошего вам настроения и удачный торгов!";
+
 
         /// <summary>
-        /// Вернуть последнюю цену по всем акциям + наименование полное
-        /// </summary> 
-        static public string QUERY2() => "https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities.xml?iss.meta=off&iss.only=marketdata&marketdata.columns=BOARDID,TRADEDATE,SHORTNAME,SECID,NUMTRADES,VALUE,OPEN,LOW,HIGH,LEGALCLOSEPRICE,WAPRICE,CLOSE,VOLUME,MARKETPRICE2,MARKETPRICE3,ADMITTEDQUOTE,MP2VALTRD,MARKETPRICE3TRADESVALUE,ADMITTEDVALUE,WAVAL,TRADINGSESSION,CURRENCYID,TRENDCLSPR";
-       
-        /// <summary>
-        /// Вернуть значения выбранной акции
+        /// Индекс мосбиржи
         /// </summary>
-        /// <param name="nameLot">название актива </param>
+        /// <param name="dataStart">дата начала</param>
+        /// <param name="dataEnd">дата окончания</param>
         /// <returns></returns>
-        static public string QuerySearchName(string nameLot = "SBER") => $@"http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{nameLot}.json";
+        static public string QueryGetMoscowExchange(string dataStart, string dataEnd, string nameActive = "SBER")
+        
+          => $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dataStart}&till={dataEnd}&interval={Settings.GlobalParameters.CandleInterval}";
 
 
         /// <summary>
@@ -110,7 +98,6 @@ namespace RequestParsingMoscowExchange.ListRequest
         /// </summary>
         /// <param name="nameActive">Название актива, например SBER</param>
         /// <param name="addDays">Количество дней</param>
-      
         ///  где "interval"интервал свечи (минуты) - задаться через настройки
         /// <returns></returns>
         static public string QueryCandle(string nameActive = "SBER")=>
@@ -124,11 +111,63 @@ namespace RequestParsingMoscowExchange.ListRequest
         static public string QueryCandleYear(string NameActive= "SBER") =>
             $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{NameActive}/candles.xml?iss.meta=off&from={dateTime(-364)}&till={CorrectDateWorkMoscowExchange()}&interval=10";
 
-        static public string QueryCandle(string nameActive = "SBER", int addDays = 0)
-        {
-            return  $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dateTime(addDays)}&till={dateTime(addDays)}&interval={Settings.GlobalParameters.CandleInterval}";
 
-        }
+        /// <summary>
+        /// Получить данные по активу за год
+        /// </summary>
+        /// <param name="nameActive">Название актива</param>
+        /// <returns></returns>
+        static public string QueryStockYear(string nameActive = "SBER")
+            =>$@"https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{nameActive}.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dateTime(-364)}&till={dateTime()}";
+       
+        /// <summary>
+        /// Вернуть индекс московской биржи(за 30 дней)
+        /// </summary>
+        /// <returns></returns>
+        static public string QueryGetMoscowExchange()
+              => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE,OPEN,HIGH,LOW,VALUE&from={dateTime(-31)}&till={dateTime()}";
+
+        /// <summary>
+        /// Вернуть индекс московской биржи(за год)
+        /// </summary>
+        /// <returns></returns>
+        static public string QueryGetMoscowExchangeYear()
+              => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE,OPEN,HIGH,LOW,VALUE&from={dateTime(-364)}&till={dateTime()}";
+
+        #region Будующие наработки для дата-майнеров
+
+        /// <summary>
+        /// Индекс мосбиржи
+        /// </summary>
+        /// <param name="dataStart">дата начала</param>
+        /// <param name="dataEnd">дата окончания</param>
+        /// <returns></returns>
+        static public string QueryGetMoscowExchange(string dataStart, string dataEnd)
+            =>  $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}";
+
+        /// <summary>
+        /// Вернуть последнюю цену по всем акциям
+        /// </summary>
+        static public string QUERYLastPrice() => "https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities.xml?iss.meta=off&iss.only=marketdata&marketdata.columns=SECID,LAST";
+
+        /// <summary>
+        /// Вернуть последнюю цену по всем акциям + наименование полное
+        /// </summary> 
+        static public string QUERY2() => "https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities.xml?iss.meta=off&iss.only=marketdata&marketdata.columns=BOARDID,TRADEDATE,SHORTNAME,SECID,NUMTRADES,VALUE,OPEN,LOW,HIGH,LEGALCLOSEPRICE,WAPRICE,CLOSE,VOLUME,MARKETPRICE2,MARKETPRICE3,ADMITTEDQUOTE,MP2VALTRD,MARKETPRICE3TRADESVALUE,ADMITTEDVALUE,WAVAL,TRADINGSESSION,CURRENCYID,TRENDCLSPR";
+
+        /// <summary>
+        /// Вернуть значения выбранной акции
+        /// </summary>
+        /// <param name="nameLot">название актива </param>
+        /// <returns></returns>
+        static public string QuerySearchName(string nameLot = "SBER") => $@"http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{nameLot}.json";
+
+        /// <summary>
+        /// Вернуть все текущие цены по акциям
+        /// </summary>
+        /// <returns></returns>
+        static public string QueryStatisticAll()
+            => @"http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json";
 
 
         /// <summary>
@@ -139,54 +178,9 @@ namespace RequestParsingMoscowExchange.ListRequest
         /// <param name="dataEnd">дата конца торгов (год-месяц-день)</param>
         /// <returns></returns>
         static public string QueryStock(string nameActive = "SBER", string dataStart = "2024-01-01", string dataEnd = "2024-01-30")
-            =>   $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dataStart}&till={dataEnd}&interval={Settings.GlobalParameters.CandleInterval}";
-        
-        /// <summary>
-        /// Получить данные по активу за год
-        /// </summary>
-        /// <param name="nameActive">Название актива</param>
-        /// <returns></returns>
-        static public string QueryStockYear(string nameActive = "SBER")
-            =>$@"https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{nameActive}.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dateTime(-364)}&till={dateTime()}";
-       
+            => $@"http://iss.moex.com/iss/engines/stock/markets/shares/securities/{nameActive}/candles.xml?iss.meta=off&from={dataStart}&till={dataEnd}&interval={Settings.GlobalParameters.CandleInterval}";
 
-        /// <summary>
-        /// Вернуть все текущие цены по акциям
-        /// </summary>
-        /// <returns></returns>
-        static public string QueryStatisticAll() 
-            => @"http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json";
-      
 
-        ///// <summary>
-        ///// Получить акции с наименованием и тикером для заполнения БД
-        ///// </summary>
-        ///// <returns></returns>
-        //static public string QueryGetAllAction()
-        //   => @"https://iss.moex.com/iss/engines/stock/markets/shares/boards/tqbr/securities.xml?iss.meta=off&iss.only=securities&securities.columns=SECID,PREVPRICE,SHORTNAME";
-       
-        /// <summary>
-        /// Вернуть индекс московской биржи(за 30 дней)
-        /// </summary>
-        /// <returns></returns>
-        static public string QueryGetMoscowExchange()
-         //   => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE&from={dateTime(-30)}&till={dateTime()}";
-              => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE,OPEN,HIGH,LOW,VALUE&from={dateTime(-31)}&till={dateTime()}";
-
-        /// <summary>
-        /// Вернуть индекс московской биржи(за год)
-        /// </summary>
-        /// <returns></returns>
-        static public string QueryGetMoscowExchangeYear()
-              //  =>  $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dateTime(-364)}&till={dateTime()}";
-              => $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history&history.columns=CLOSE,TRADEDATE,OPEN,HIGH,LOW,VALUE&from={dateTime(-364)}&till={dateTime()}";
-        /// <summary>
-        /// Индекс мосбиржи
-        /// </summary>
-        /// <param name="dataStart">дата начала</param>
-        /// <param name="dataEnd">дата окончания</param>
-        /// <returns></returns>
-        static public string QueryGetMoscowExchange(string dataStart, string dataEnd)
-            =>  $@"https://iss.moex.com/iss/history/engines/stock/markets/index/boards/SNDX/securities/imoex.xml?iss.meta=off&iss.only=history|history.cursor&history.columns=CLOSE,TRADEDATE&from={dataStart}&till={dataEnd}";
+        #endregion
     }
 }

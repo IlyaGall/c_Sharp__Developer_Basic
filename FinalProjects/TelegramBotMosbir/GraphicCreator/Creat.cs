@@ -8,18 +8,6 @@ namespace GraphicCreator
     internal class Creat
     {
 
-        /// <summary>
-        /// удаление всех файлов после завершения работы
-        /// </summary>
-        static public void DelAllIMGInTemp()
-        {
-            
-            DirectoryInfo dirInfo = new DirectoryInfo(Settings.GlobalParameters.PathSave);
-            foreach (FileInfo file in dirInfo.GetFiles())
-            {
-                file.Delete();
-            }
-        }
 
 
         /// <summary>

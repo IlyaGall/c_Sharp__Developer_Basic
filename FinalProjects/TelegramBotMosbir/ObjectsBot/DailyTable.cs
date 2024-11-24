@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ObjectsBot
 {
+    /// <summary>
+    /// Объект для хранения данных об выходных днях
+    /// </summary>
     public class DailyTable
     {
 

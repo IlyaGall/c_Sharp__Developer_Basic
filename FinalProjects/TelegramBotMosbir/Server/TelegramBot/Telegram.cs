@@ -12,13 +12,13 @@ using RequestParsingMoscowExchange.Parsing;
 namespace Server.TelegramBot
 {
     /// <summary>
-    /// работа с телеграмм
+    /// Работа с телеграмм
     /// </summary>
     public class TelegramBotMessage
     {
 
         /// <summary>
-        /// массив кнопок
+        /// Массив кнопок
         /// </summary>
         /// <returns>экземпляр класса InlineKeyboardMarkup с массивом кнопок</returns>
         private static InlineKeyboardMarkup ArrayButton()
@@ -28,12 +28,8 @@ namespace Server.TelegramBot
                 {
                     new[]
                     {
-                        InlineKeyboardButton.WithCallbackData("справка", "/info"),
+                        InlineKeyboardButton.WithCallbackData("Справка", "/info"),
                     },
-                    // new[]
-                    //{
-                    //    InlineKeyboardButton.WithCallbackData("Список команд", "/ListCommand"),
-                    //},
                     new[]
                     {
                         InlineKeyboardButton.WithCallbackData("Индекс МБ за 30 дней", "/indexMB30Day"),
@@ -78,6 +74,7 @@ namespace Server.TelegramBot
         {
             ObjectAnalytics objectAnalytics = new ObjectAnalytics();
 
+            #region Обработчик кнопок
             var button = update.CallbackQuery;
             if (update.CallbackQuery != null)
             {
@@ -87,50 +84,45 @@ namespace Server.TelegramBot
 
                 switch (buttonCommand)
                 {
+                    case "/start":
                     case "/info":
                         var text = "Список команд:";
                         objectAnalytics = Server.Commands.Server.ServerCommand(buttonCommand, objectAnalytics);
                         await botClient.SendTextMessageAsync(userId, $"command: {buttonCommand}\n {objectAnalytics.Description}");
                         await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
                         break;
-                    case "/indexMB30Day":
+                    case "/indexMB30Day"://индекс московской биржи за 30 дней
                         objectAnalytics = Server.Commands.Server.ServerCommand("/indexMB30Day", objectAnalytics, "");
                         await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
                         break;
-                    case "/indexMBYear":
+                    case "/indexMBYear"://индекс московской биржи за 1 год
                         objectAnalytics = Server.Commands.Server.ServerCommand("/indexMBYear", objectAnalytics, "");
                         await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
                         break;
-
-                    case "test":
-                        break;
-                    case "/AddFavorites":
+                    case "/AddFavorites"://Добавить акцию в избранное,просто инструкция
                         text = "Для того чтобы добавить акцию в избранное, нужно написать команду:'/AddFavorites название акции'";
                         DataBaseTelegramBot.DataBase dataBase = new DataBaseTelegramBot.DataBase();
-
-                        if(!dataBase.checkUser(userId))
-                        { 
-                            dataBase.addUser(userId,  update.CallbackQuery.From.FirstName , update.CallbackQuery.From.LastName, update.CallbackQuery.From.Username);
+                        if (!dataBase.checkUser(userId))
+                        {
+                            dataBase.addUser(userId, update.CallbackQuery.From.FirstName, update.CallbackQuery.From.LastName, update.CallbackQuery.From.Username);
                         }
-
                         await botClient.SendTextMessageAsync(userId, text);
                         break;
-
-                    case "/GetFavoritesStocks":
+                    case "/GetFavoritesStocks"://Вернуть избранные акции
                         List<string> list = DataBase.GetStockListUser(userId);
-                        if (list.Count == 0) 
+                        if (list.Count == 0)
                         {
                             await botClient.SendTextMessageAsync(userId, "У вас нет избранных активов!");
                             return;
                         }
                         foreach (var nameActive in DataBase.GetStockListUser(userId))
                         {
-                            objectAnalytics = Server.Commands.Server.ServerCommand("/GetFavoritesStocks", objectAnalytics, nameActive.Replace(" ",""));
+                            objectAnalytics = Server.Commands.Server.ServerCommand("/GetFavoritesStocks", objectAnalytics, nameActive.Replace(" ", ""));
                             if (objectAnalytics.PathImg?.Count != 0)
                             {
                                 int stepCollection = 0;
                                 await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
-                               
+
                             }
                             objectAnalytics.Clear();
                         }
@@ -138,41 +130,88 @@ namespace Server.TelegramBot
 
                 }
             }
+            #endregion
 
+            #region Обработчик текста
             var message = update.Message;
             if (message != null)
             {
                 long userId = message.Chat.Id;
                 var messageTelegram = message.Text?.ToString()?.Split(' ');
+
                 switch (messageTelegram[0])
                 {
-                    case "/UpdateBDStock":
+                    case "/getStock": // получить акцию, когда пользователь набирает её в ручную, а не через бд
+                        (bool, string) answer = DataBase.CheckStockInBD(messageTelegram[1]);
+                        if (answer.Item1 == false)
+                        {
+                            await botClient.SendTextMessageAsync(userId, @"Моя не понимать, что за акция");
+                        }
+                        else
+                        {
+                            if (messageTelegram.Length >= 4)
+                            {
+
+                                DateTime dateTime = DateTime.Now;
+                                if (!DateTime.TryParse(messageTelegram[2], out dateTime))
+                                {
+                                    await botClient.SendTextMessageAsync(userId, @"Не правильная дата!");
+                                }
+                                if (!DateTime.TryParse(messageTelegram[3], out dateTime))
+                                {
+                                    await botClient.SendTextMessageAsync(userId, @"Не правильная дата!");
+
+                                }
+
+
+
+                                objectAnalytics = Server.Commands.Server.ServerCommand("/GetFavoritesStocksWithDate", objectAnalytics, answer.Item2.Replace(" ", ""), messageTelegram[2], messageTelegram[3]);
+                                if (objectAnalytics.PathImg?.Count != 0)
+                                {
+                                    int stepCollection = 0;
+                                    await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
+                                }
+                                objectAnalytics.Clear();
+                            }
+                            else
+                            {
+                                objectAnalytics = Server.Commands.Server.ServerCommand("/GetFavoritesStocks", objectAnalytics, answer.Item2.Replace(" ", ""));
+                                if (objectAnalytics.PathImg?.Count != 0)
+                                {
+                                    int stepCollection = 0;
+                                    await LoadArrayPhoto(botClient, userId, objectAnalytics.PathImg, objectAnalytics.DescriptionImg);
+                                }
+                                objectAnalytics.Clear();
+                            }
+                        }
+                        break;
+
+                    case "/UpdateBDStock":// Обновить бд, тут хард код
                         if (userId == 941692237)
                         {
                             List<UpdateStockBd> BDStock = ParserXML.ParsingMoscowExchange(RequestCommand.QueryGetFullStock());
                             DataBase.UpsetStock(BDStock);
                             await botClient.SendTextMessageAsync(userId, @"Бд акций обновлена!");
                         }
-                        else 
+                        else
                         {
                             await botClient.SendTextMessageAsync(userId, @"У вас не достаточно прав!!!");
                         }
                         break;
 
-                    case "/AddFavorites":
-                        
-                        //DataBase.AddFavoritesStock(userId, messageTelegram[1]);
+                    case "/AddFavorites": //Добавление акции в избранную позицию
+                        await botClient.SendTextMessageAsync(userId, DataBase.AddActive(userId, messageTelegram[1]));
                         break;
-                    case "/info":
+
+                    case "/info"://Список команд
                         var text = "Список команд:";
-                      //  var getAnswer = Server.ServerCommand("/info");
-                      //  await botClient.SendTextMessageAsync(userId, $"command: {"/info"}\n {getAnswer.Item1}");
                         await botClient.SendTextMessageAsync(userId, text, replyMarkup: ArrayButton());
                         break;
                     default:
                         await botClient.SendTextMessageAsync(userId, @"Не известная команда! Вызовите \info, чтобы открыть список доступных команд.");
                         break;
                 }
+                #region Если пользователь одарённый и отпаравил картинку, хотя не должен был! (заглушка)
                 if (message.Document != null)
                 {
                     await botClient.SendTextMessageAsync(message.Chat.Id, $"Ща отправим");
@@ -196,53 +235,13 @@ namespace Server.TelegramBot
                         message.Chat.Id,
                         document: InputFile.FromStream(stream, fileName),
                         caption: "The Tragedy of Hamlet,\nPrince of Denmark");
-
-
                     return;
                 }
+                #endregion
             }
-        }
-
-        /// <summary>
-        /// Отправка файла виде документа клиенту
-        /// </summary>
-        /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
-        /// <param name="IDChats">(long) id чата пользователя</param>
-        /// <param name="pathFile">(string) путь до файла</param>
-        /// <param name="text">(string) Текст если требуется</param>
-        /// <returns></returns>
-        private static async Task loadFile(ITelegramBotClient botClient, long IDChats, string pathFile, string text = "")
-        {
-
-            string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
-            await using Stream stream = System.IO.File.OpenRead(pathFile);
-            var messageLoad = await botClient.SendDocumentAsync(
-                IDChats,
-                document: InputFile.FromStream(stream, fileName),
-                caption: $"{text}");
-        }
-
-        /// <summary>
-        /// Отправка 1-го файла виде картинки клиенту
-        /// </summary>
-        /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
-        /// <param name="IDChats">(long) id чата пользователя</param>
-        /// <param name="pathFile">(string) путь до файла</param>
-        /// <param name="text">(string) Текст если требуется</param>
-        /// <returns></returns>
-        private static async Task loadPhoto(ITelegramBotClient botClient, long IDChats, string pathFile, string text = "12121212")
-        {
-            string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
-            await using Stream stream = System.IO.File.OpenRead(pathFile);
-
-            var messageLoad = await botClient.SendPhotoAsync(
-                  chatId: IDChats,
-                  photo: InputFile.FromStream(stream, fileName),
-                  caption: $"{text}"
-                );
+            #endregion
 
         }
-
 
         /// <summary>
         /// Функция отправки сообщения с n количеством картинок
@@ -310,16 +309,7 @@ namespace Server.TelegramBot
         }
 
 
-        /// <summary>
-        /// Отправка пользователю сообщения
-        /// </summary>
-        /// <param name="message"></param>
-        static public void SendMessage(string message)
-        {
-            //пока поставлю заглушку, в виде writeline
-            Console.WriteLine(message);
-
-        }
+        #region задумка на будущие
 
         /// <summary>
         /// отправка сообщения разработчику о том, чтобы посмотрел что-же пошло не так и подробное описание
@@ -329,5 +319,48 @@ namespace Server.TelegramBot
         {
             Console.WriteLine(message);
         }
+
+
+
+        /// <summary>
+        /// Отправка файла виде документа клиенту
+        /// </summary>
+        /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
+        /// <param name="IDChats">(long) id чата пользователя</param>
+        /// <param name="pathFile">(string) путь до файла</param>
+        /// <param name="text">(string) Текст если требуется</param>
+        /// <returns></returns>
+        private static async Task loadFile(ITelegramBotClient botClient, long IDChats, string pathFile, string text = "")
+        {
+            string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
+            await using Stream stream = System.IO.File.OpenRead(pathFile);
+            var messageLoad = await botClient.SendDocumentAsync(
+                IDChats,
+                document: InputFile.FromStream(stream, fileName),
+                caption: $"{text}");
+        }
+
+        /// <summary>
+        /// Отправка 1-го файла виде картинки клиенту
+        /// </summary>
+        /// <param name="botClient">(ITelegramBotClient) экземпляр интерфейса </param>
+        /// <param name="IDChats">(long) id чата пользователя</param>
+        /// <param name="pathFile">(string) путь до файла</param>
+        /// <param name="text">(string) Текст если требуется</param>
+        /// <returns></returns>
+        private static async Task loadPhoto(ITelegramBotClient botClient, long IDChats, string pathFile, string text = "12121212")
+        {
+            string fileName = pathFile.Remove(0, pathFile.LastIndexOf('\\') - 1);// "PEROOOOOO.jpg";
+            await using Stream stream = System.IO.File.OpenRead(pathFile);
+
+            var messageLoad = await botClient.SendPhotoAsync(
+                  chatId: IDChats,
+                  photo: InputFile.FromStream(stream, fileName),
+                  caption: $"{text}"
+                );
+
+        }
+        #endregion
+
     }
 }

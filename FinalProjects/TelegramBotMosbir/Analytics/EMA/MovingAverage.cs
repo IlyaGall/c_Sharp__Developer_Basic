@@ -1,5 +1,4 @@
-﻿
-namespace Analytics.EMA
+﻿namespace Analytics.EMA
 {
     static public class MovingAverage
     {

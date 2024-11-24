@@ -3,8 +3,6 @@ using Npgsql;
 using System.Data;
 using Dapper;
 using ObjectsBot;
-using DataBaseTelegramBot.Objects;
-
 
 namespace DataBaseTelegramBot
 {
@@ -13,29 +11,25 @@ namespace DataBaseTelegramBot
     /// </summary>
     public class DataBase
     {
-        static List<long> Users = new();
-        static List<string> FavoritesStock = new() { "SBER", "LKOH" };
-      
         /// <summary>
         /// Проверить пользователя наличие в БД
         /// </summary>
-        /// <param name="idUser">ID пользователя</param>
+        /// <Param name="idUser">ID пользователя</Param>
         /// <returns>true- нашёл пользователя в бд, false - не нашёл в бд</returns>
         public bool checkUser(long idUser)
         {
             HelpConnectionServer helpConnectionServer = new HelpConnectionServer();
-            helpConnectionServer.NameDateBase = "telegramBot";
             helpConnectionServer.CreateStringConnectionDapper();
-            Request request = new Request();
+
             string commandSql = @"select id from public.user 
                                   where id_user_telegram = @IdUser";
             using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
             {
-                var param = new
+                var Param = new
                 {
                     IdUser = idUser
                 };
-                if (connection.Query(commandSql, param).ToList().Count > 0)
+                if (connection.Query(commandSql, Param).ToList().Count > 0)
                 {
                     return true;
                 }
@@ -46,46 +40,42 @@ namespace DataBaseTelegramBot
         /// <summary>
         /// Добавить пользователя
         /// </summary>
-        /// <param name="idUser"></param>
-        /// <param name="userFirstName"></param>
-        /// <param name="userLastName"></param>
-        /// <param name="nicName"></param>
+        /// <Param name="idUser"></Param>
+        /// <Param name="userFirstName"></Param>
+        /// <Param name="userLastName"></Param>
+        /// <Param name="nicName"></Param>
         /// <returns></returns>
         public void addUser(long idUser, string userFirstName, string userLastName, string userNice)
         {
             HelpConnectionServer helpConnectionServer = new HelpConnectionServer();
             helpConnectionServer.NameDateBase = "telegramBot";
             helpConnectionServer.CreateStringConnectionDapper();
-            Request request = new Request();
-
             string commandSql = @"INSERT INTO public.user (id_user_telegram, user_first_name_telegram,user_last_name_telegram, user_nick)
                                      VALUES (@IdUser, @UserFirstName, @UserLastName,@UserNice)";
             using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
             {
-                var param = new
+                var Param = new
                 {
                     IdUser = idUser,
                     UserFirstName = userFirstName,
                     UserLastName = userLastName,
                     UserNice = userNice
                 };
-                connection.Execute(commandSql, param);
+                connection.Execute(commandSql, Param);
             }
         }
 
         /// <summary>
         /// Обновление БД акций
         /// </summary>
-        /// <param name="BDStock"></param>
+        /// <Param name="BDStock"></Param>
         public static void UpsetStock(List<UpdateStockBd> BDStock)
         {
             HelpConnectionServer helpConnectionServer = new HelpConnectionServer();
             helpConnectionServer.NameDateBase = "telegramBot";
             helpConnectionServer.CreateStringConnectionDapper();
-            Request request = new Request();
             using (var connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
             {
-
                 //  Добавил в pdAdmin ограничение на SECID, чтобы можно было сделать конфликт
                 string commandSql = @"
                 INSERT INTO stock (secid, short_name, prevprice, lot_size, isin)
@@ -95,124 +85,118 @@ namespace DataBaseTelegramBot
                     prevprice = EXCLUDED.prevprice,
                     lot_size = EXCLUDED.lot_size,
                     ISIN = EXCLUDED.ISIN;";
-                    foreach (var item in BDStock)
+                foreach (var item in BDStock)
+                {
+                    var Param = new
                     {
-                        var param = new
-                        {
-                            SECID = item.SECID,
-                            ShortName = item.ShortName,
-                            Prevprice = item.Prevprice,
-                            LotSize = item.LotSize,
-                            ISIN = item.ISIN,
+                        SECID = item.SECID,
+                        ShortName = item.ShortName,
+                        Prevprice = item.Prevprice,
+                        LotSize = item.LotSize,
+                        ISIN = item.ISIN,
 
-                        };
-                        connection.Execute(commandSql, param);
-                    }
+                    };
+                    connection.Execute(commandSql, Param);
+                }
             }
-    }
+        }
 
 
         /// <summary>
         /// Получить избранные акции пользователя
         /// </summary>
         /// <returns></returns>
-        public static List<string> GetStockListUser(long idUser) 
+        public static List<string> GetStockListUser(long idUser)
         {
-
             HelpConnectionServer helpConnectionServer = new HelpConnectionServer();
-            helpConnectionServer.NameDateBase = "telegramBot";
             helpConnectionServer.CreateStringConnectionDapper();
-            Request request = new Request();
-            // static List<string> FavoritesStock = new() { "SBER", "LKOH" };
-            //string commandSql = @"INSERT INTO public.link_user_stock  (id_user,id_stok)
-            //    VALUES (@IDUser,@IDStok )";
-
             string commandSql = @"select name_stock from link_user_stock 
                                 where id_user = @IdUser";
-            var param = new
+            var Param = new
             {
                 IdUser = idUser
             };
             using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
             {
-                return connection.Query<string>(commandSql, param).ToList();
+                return connection.Query<string>(commandSql, Param).ToList();
             }
 
         }
 
-
-
-
-
-    /// <summary>
-    /// Добавить актив в избранное
-    /// </summary>
-    /// <param name="idUser">Id пользователя</param>
-    /// <param name="nameStock">Название актива</param>
-    /// <returns></returns>
-    static public bool AddFavoritesStock(long idUser, string nameStock)
-        {
-            if (FavoritesStock.Contains(nameStock))
-            {
-                return false;
-            }
-            else
-            {
-                FavoritesStock.Add(nameStock);
-                return true;
-            }
-        }
         /// <summary>
-        /// Найти актив
+        /// Проверить акцию на правильность заполнения перед обращением к БД мосбиржи
         /// </summary>
+        /// <Param name="nameActive"></Param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public string SearchStock()
+        static public (bool, string) CheckStockInBD(string nameActive)
         {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Вернуть избранные активы пользователя
-        /// </summary>
-        /// <param name="idUser">Id пользователя</param>
-        /// <returns>Коллекция избранных активов пользователя</returns>
-        //static public List<string> GetStockListUser(long idUser)
-        //{
-        //    List<string> itemsStock = new();
-        //    foreach (var item in FavoritesStock)
-        //    {
-        //        itemsStock.Add(item);
-        //    }
-        //    return itemsStock;
-
-        //}
-        public class DataStock
-        {
-
-            private double _prevprice;
-            public string? SECID { get; set; }
-            public double PREVPRICE
+            HelpConnectionServer helpConnectionServer = new HelpConnectionServer();
+            helpConnectionServer.CreateStringConnectionDapper();
+            string commandSql = @"select secid from stock
+                                where secid = @NameActive";
+            var Param = new
             {
-                get => _prevprice;
-                set
+                NameActive = nameActive
+            };
+            string nameAciveInBD = "";
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                List<string> active = connection.Query<string>(commandSql, Param)?.ToList();
+                if (active?.Count == 0)
                 {
-                    try
-                    {
-                        _prevprice = Convert.ToDouble(value.ToString().Replace(".", ","));
-                    }
-                    catch
-                    {
-                        throw new Exception("нельзя конвертировать! Разбирайся с запросом!");
-                    }
+                    return (false, $"Не удалось найти '{nameActive}' актив в базе данных!");
+                }
+                else
+                {
+                    nameAciveInBD = active[0].Replace(" ", "");
                 }
             }
-            public string? SHORTNAME { get; set; }
+            return (true, nameAciveInBD);
+        }
 
 
+        /// <summary>
+        /// Добавить акцию к список избранного
+        /// </summary>
+        /// <Param name="idUser">Id пользователя</Param>
+        /// <Param name="nameActive">Название актива</Param>
+        /// <returns></returns>
+        static public string AddActive(long idUser, string nameActive)
+        {
+            HelpConnectionServer helpConnectionServer = new HelpConnectionServer();
+            helpConnectionServer.CreateStringConnectionDapper();
 
-
-
+            string commandSql = @"select secid from stock
+                                where secid = @NameActive";
+            var Param = new
+            {
+                NameActive = nameActive
+            };
+            string nameActiveInBD = "";
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                List<string> active = connection.Query<string>(commandSql, Param)?.ToList();
+                if (active.Count == 0)
+                {
+                    return ($"Не удалось найти '{nameActive}' актив в базе данных!");
+                }
+                else
+                {
+                    nameActiveInBD = active[0].Replace(" ", "");
+                }
+            }
+            string commandSql2 = @"INSERT INTO link_user_stock  ( id_user, name_stock)
+                                   VALUES ( @IdUser, @NameActive)";
+            using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))
+            {
+                var Param2 = new
+                {
+                    IdUser = idUser,
+                    NameActive = nameActive,
+                };
+                connection.Execute(commandSql, Param2);
+            }
+            return ($"Актив '{nameActive}' добавлен в избранно!");
         }
     }
 }

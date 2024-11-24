@@ -32,6 +32,9 @@ namespace ObjectsBot
             DescriptionImg = new List<string>();
         }
 
+        /// <summary>
+        /// Очистка данных в объекте для цикла foreach
+        /// </summary>
         public void Clear() 
         {
             Description = "";

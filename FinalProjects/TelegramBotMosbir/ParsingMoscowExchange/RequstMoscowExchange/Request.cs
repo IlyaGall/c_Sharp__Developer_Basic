@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace RequestParsingMoscowExchange.RequestMoscowExchange
 {
     /// <summary>
-    /// запросы к БД
+    /// Запросы к БД Московской биржи
     /// </summary>
     public static class Request
     {
         /// <summary>
-        /// запрос к серверу мосбиржи
+        /// Запрос к серверу мосбиржи
         /// </summary>
         /// <param name="url">строка адреса</param>
         /// <returns>ответ от сервера</returns>
@@ -35,7 +35,7 @@ namespace RequestParsingMoscowExchange.RequestMoscowExchange
         }
 
         /// <summary>
-        /// запрос к серверу Московской биржи
+        /// Запрос к серверу Московской биржи
         /// </summary>
         /// <param name="url">запрос в виде url</param>
         /// <param name="command">команда</param>
@@ -50,41 +50,5 @@ namespace RequestParsingMoscowExchange.RequestMoscowExchange
             }
 
         }
-
-
-
-
-        /// <summary>
-        /// запрос к московской бирже
-        /// </summary>
-        /// <param name="command">комманда</param>
-        static public void quest(string command, string request, bool parsing = true)
-        {
-            using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate }))
-            {
-                client.BaseAddress = new Uri("http://iss.moex.com");
-                HttpResponseMessage response = client.GetAsync(request).Result;
-                string json = response.Content.ReadAsStringAsync().Result;
-               // TelegramBotMessage.SendMessageDebagger("Result :\n" + json);
-                switch (command)
-                {
-                    case "Обновить бд DataStock":
-
-                        //List<DataBase.DataStock> items = new();
-                        //if (Parsing)
-                        //{
-                        //    items = ParserXML.Parsing(json, items);
-                        //}
-                        break;
-                    case "индекс мосбиржи":
-                    //    TelegramBotMessage.SendMessage(ParserXML.Parsing(json, request));
-                        break;
-
-
-                }
-
-            }
-        }
-
     }
 }

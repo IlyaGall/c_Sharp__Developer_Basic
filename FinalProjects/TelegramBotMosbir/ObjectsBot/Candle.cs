@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ObjectsBot
 {
     /// <summary>
-    /// свечка
+    /// Свечка
     /// </summary>
     public class Candle
     {
@@ -15,30 +15,37 @@ namespace ObjectsBot
         /// Открытие (цена) 
         /// </summary>
         public double Open { get; set; }
+        
         /// <summary>
         /// Закрытие (цена)
         /// </summary>
         public double Close { get; set; }
+        
         /// <summary>
         /// Покупка(высота)
         /// </summary>
         public double High { get; set; }
+        
         /// <summary>
         /// Продажа (высота)
         /// </summary>
         public double Low { get; set; }
+       
         /// <summary>
         /// Стоимость
         /// </summary>
         public double Value { get; set; }
+       
         /// <summary>
         /// Объём
         /// </summary>
         public double Volume { get; set; }
+        
         /// <summary>
         /// Начало время продажи (свечки)
         /// </summary>
         public DateTime Begin { get; set; }
+        
         /// <summary>
         /// Конец время продажи (свечки)
         /// </summary>

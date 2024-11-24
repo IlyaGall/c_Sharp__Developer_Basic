@@ -6,7 +6,9 @@ using RequestParsingMoscowExchange.RequestMoscowExchange;
 
 namespace RequestParsingMoscowExchange.Parsing
 {
-
+    /// <summary>
+    /// Класс для распарсивания XML
+    /// </summary>
     public static class ParserXML
     {
         /// <summary>
@@ -113,11 +115,13 @@ namespace RequestParsingMoscowExchange.Parsing
             return updateStockBds;
         }
     
-
-
-
-
-
+        /// <summary>
+        /// Вспомогательный класс для распарсивания данных
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="xNode"></param>
+        /// <param name="visibleTeg"></param>
+        /// <returns></returns>
         static private Dictionary<DateTime, double> parsingXML(Dictionary<DateTime, double> items, XmlElement xNode, bool visibleTeg = false)
         {
             // обходим все дочерние узлы элемента user
@@ -142,96 +146,6 @@ namespace RequestParsingMoscowExchange.Parsing
             return items;
         }
 
-
-
-
-
-
-        /// <summary>
-        /// распарcить индекс мосбиржи
-        /// </summary>
-        /// <param name="xml">xml</param>
-        /// <param name="request"></param>
-        /// <param name="visibleTeg"></param>
-        /// <returns></returns>
-        static public string Parsing(string xml, string request, bool visibleTeg = false)
-        {
-            Dictionary<DateTime, double> items = new Dictionary<DateTime, double>();
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.LoadXml(xml);
-            XmlElement? xRoot = xDoc.DocumentElement;
-            if (xRoot != null)
-            {
-                // обход всех узлов в корневом элементе
-                foreach (XmlElement xNode in xRoot)
-                {
-                    // получаем атрибут name
-                    XmlNode? attr = xNode.Attributes.GetNamedItem("id");
-
-                    Console.WriteLine(attr?.Value);
-
-                    switch (attr?.Value)
-                    {
-                        case "history":
-                            items = parsingXML(
-                                items: items,
-                                xNode: xNode,
-                                visibleTeg: false);
-                            break;
-                        case "history.cursor":
-                            foreach (XmlNode childNode in xNode.ChildNodes)
-                            {
-                                foreach (XmlNode childNode1 in childNode.ChildNodes)
-                                {
-                                    //Telegram.SendMessageDebagger($"{childNode1?.Attributes?[0].InnerText} {childNode1?.Attributes?[0].LocalName}\n" +
-                                    //     $"{childNode1?.Attributes?[1].InnerText} {childNode1?.Attributes?[1].LocalName}\n" +
-                                    //     $"{childNode1?.Attributes?[2].InnerText} {childNode1?.Attributes?[2].LocalName} ");
-                                    double index = Convert.ToInt32(childNode1?.Attributes?[0].InnerText);
-                                    double total = Convert.ToInt32(childNode1?.Attributes?[1].InnerText);
-                                    double pageSize = Convert.ToInt32(childNode1?.Attributes?[2].InnerText);
-
-                                    if (index + pageSize < total)
-                                    {
-                                        for (double i = 1; i < total / 100; i++)
-                                        {
-                                            Console.WriteLine($"обработано страниц {i} из {total / 100}");
-                                            xDoc.LoadXml(Request.request(request + $"&start={i * 100}"));
-                                            xRoot = xDoc.DocumentElement;
-                                            foreach (XmlElement xNodeHistory in xRoot)
-                                            {
-                                                XmlNode? attrHistory = xNodeHistory.Attributes.GetNamedItem("id");
-
-                                                switch (attrHistory?.Value)
-                                                {
-                                                    case "history":
-                                                        items = parsingXML(
-                                                            items: items,
-                                                            xNode: xNodeHistory,
-                                                            visibleTeg: false);
-                                                        break;
-                                                }
-
-                                            }
-                                        }
-                                    }
-
-
-                                }
-                            }
-                            break;
-                        default:
-                            throw new Exception("Не известный xml файл");
-                    }
-                }
-            }
-
-            //  return Analytic.AnalyticMoscowExchange(items);
-            return null;
-        }
-
-
-
-        ////////////////////########новый парсер###########/////////////////////
 
         /// <summary>
         /// Парсинг исторического массива данных
@@ -305,8 +219,6 @@ namespace RequestParsingMoscowExchange.Parsing
 
             return items;
         }
-
-
 
         /// <summary>
         /// Парсинг xml для московской биржи

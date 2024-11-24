@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseTelegramBot", "Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestParsingMoscowExchange", "ParsingMoscowExchange\RequestParsingMoscowExchange.csproj", "{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicCreator", "GraphicCreator\GraphicCreator.csproj", "{068ACB21-98DD-4ED8-8AAD-1A6EF8B00095}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79CBD8D0-BA61-4391-8C3E-A483245EE7C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{068ACB21-98DD-4ED8-8AAD-1A6EF8B00095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{068ACB21-98DD-4ED8-8AAD-1A6EF8B00095}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{068ACB21-98DD-4ED8-8AAD-1A6EF8B00095}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{068ACB21-98DD-4ED8-8AAD-1A6EF8B00095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

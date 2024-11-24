@@ -3,7 +3,7 @@ using Server.TelegramBot;
 
 namespace MenuProject
 {
-   public static class Menu
+    public static class Menu
     {
         #region управление курсором меню
         /// <summary>
@@ -19,7 +19,7 @@ namespace MenuProject
         /// <summary>
         /// стек текущей навигации пользователя
         /// </summary>
-        static public List<string> stackNavigation = new List<string>() { "Main menu" };
+        static public List<string> stackNavigation = new List<string>() { "MainAnalitcs menu" };
 
         /// <summary>
         /// На одну строку вниз
@@ -74,7 +74,7 @@ namespace MenuProject
             {
                 switch (stackNavigation[stackNavigation.Count - 1])
                 {
-                    case "Main menu":
+                    case "MainAnalitcs menu":
                         Console.WriteLine("Для выхода нажмите Escape");
                         for (var i = 0; i < optionsMainMenu.Length; i++)
                         {
@@ -106,8 +106,6 @@ namespace MenuProject
 
         }
 
-
-
         /// <summary>
         /// Опции меню
         /// </summary>
@@ -119,6 +117,7 @@ namespace MenuProject
             "Выход из программы"
 
         };
+
         /// <summary>
         /// Обновление раздела настроек 
         /// </summary>
@@ -153,16 +152,16 @@ namespace MenuProject
         }
 
         /// <summary>
-        /// возвращаем фичу
+        /// Возвращаем фичу
         /// </summary>
         private static string[] author = new[] {
             $"Автор ПО '{Settings.GlobalParameters.Avtar}'",
         };
 
         /// <summary>
-        /// навигация по меню
+        /// Навигация по меню
         /// </summary>
-        /// <param name="movement">в какую строну движение + вперёд</param>
+        /// <param name="movement">В какую строну движение + вперёд</param>
         /// <returns>bool try если дошли до конца пути</returns>
         static private bool navigation(string movement = "+")
         {
@@ -173,11 +172,11 @@ namespace MenuProject
                     case 0:
                         break;
                     case 1:
-                        if (stackNavigation[stackNavigation.Count - 1] == "Main menu")
+                        if (stackNavigation[stackNavigation.Count - 1] == "MainAnalitcs menu")
                         {
                             Console.Clear();
                             TelegramBotMessage.startTelegram();
-                        
+
                             Clear();
                             PrintMenu();
                         }
@@ -206,7 +205,7 @@ namespace MenuProject
                     case 2:
                         switch (stackNavigation[stackNavigation.Count - 1])
                         {
-                            case "Main menu":
+                            case "MainAnalitcs menu":
                                 Clear();
                                 stackNavigation.Add("Setting");
                                 PrintMenu();
@@ -233,10 +232,9 @@ namespace MenuProject
                         break;
                     case 4:
                         Clear();
-
                         switch (stackNavigation[stackNavigation.Count - 1])
                         {
-                            case "Main menu":
+                            case "MainAnalitcs menu":
                                 stackNavigation.RemoveAt(stackNavigation.Count - 1);
                                 PrintMenu();
                                 selectedValue = 1;
@@ -393,7 +391,6 @@ namespace MenuProject
         {
             Console.Clear();
         }
-
 
         /// <summary>
         /// запуск приложения
