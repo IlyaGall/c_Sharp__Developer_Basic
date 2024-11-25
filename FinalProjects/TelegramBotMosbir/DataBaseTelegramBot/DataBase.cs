@@ -185,6 +185,11 @@ namespace DataBaseTelegramBot
                     nameActiveInBD = active[0].Replace(" ", "");
                 }
             }
+
+            
+        
+
+
             string commandSql2 = @"INSERT INTO link_user_stock  ( id_user, name_stock)
                                    VALUES ( @IdUser, @NameActive)";
             using (IDbConnection connection = new NpgsqlConnection(helpConnectionServer.ConnectionStringDapper))

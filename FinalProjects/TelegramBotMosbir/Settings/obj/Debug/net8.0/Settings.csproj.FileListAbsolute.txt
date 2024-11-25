@@ -21,3 +21,14 @@ C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\Settings\obj\
 C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\Settings\obj\Debug\net8.0\refint\Settings.dll
 C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\Settings\obj\Debug\net8.0\Settings.pdb
 C:\gitHub\c_Sharp__Developer_Basic\FinalProjects\TelegramBotMosbir\Settings\obj\Debug\net8.0\ref\Settings.dll
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\bin\Debug\net8.0\Settings.deps.json
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\bin\Debug\net8.0\Settings.dll
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\bin\Debug\net8.0\Settings.pdb
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\Settings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\Settings.AssemblyInfoInputs.cache
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\Settings.AssemblyInfo.cs
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\Settings.csproj.CoreCompileInputs.cache
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\Settings.dll
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\refint\Settings.dll
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\Settings.pdb
+C:\Users\Ilya\Desktop\TelegramBotMosbir\Settings\obj\Debug\net8.0\ref\Settings.dll
