@@ -13,7 +13,7 @@ namespace RequestParsingMoscowExchange.RequestMoscowExchange
     public static class Request
     {
         /// <summary>
-        /// Запрос к серверу мосбиржи
+        /// Запрос к серверу мосбиржи xml
         /// </summary>
         /// <param name="url">строка адреса</param>
         /// <returns>ответ от сервера</returns>
@@ -35,10 +35,9 @@ namespace RequestParsingMoscowExchange.RequestMoscowExchange
         }
 
         /// <summary>
-        /// Запрос к серверу Московской биржи
+        /// Запрос к серверу Московской биржи json
         /// </summary>
-        /// <param name="url">запрос в виде url</param>
-        /// <param name="command">команда</param>
+        /// <param name="url">Запрос в виде url</param>
         /// <returns></returns>
         static public string RequestServer(string url)
         {

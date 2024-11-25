@@ -133,7 +133,7 @@ namespace MenuProject
         };
 
         /// <summary>
-        /// обновление массива 
+        /// Обновление массива 
         /// </summary>
         private static void updateArraySetting()
         {
@@ -393,7 +393,7 @@ namespace MenuProject
         }
 
         /// <summary>
-        /// запуск приложения
+        /// Запуск приложения
         /// </summary>
         static public void start()
         {

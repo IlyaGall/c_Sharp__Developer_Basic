@@ -156,7 +156,7 @@ namespace DataBaseTelegramBot
 
 
         /// <summary>
-        /// Добавить акцию к список избранного
+        /// Добавить акцию в список избранного
         /// </summary>
         /// <Param name="idUser">Id пользователя</Param>
         /// <Param name="nameActive">Название актива</Param>
@@ -194,7 +194,7 @@ namespace DataBaseTelegramBot
                     IdUser = idUser,
                     NameActive = nameActive,
                 };
-                connection.Execute(commandSql, Param2);
+                connection.Execute(commandSql2, Param2);
             }
             return ($"Актив '{nameActive}' добавлен в избранно!");
         }

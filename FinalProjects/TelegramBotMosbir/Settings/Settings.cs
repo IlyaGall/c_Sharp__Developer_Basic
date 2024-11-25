@@ -9,7 +9,7 @@ using System.Text.Json;
 namespace SettingsProject
 {
     /// <summary>
-    /// класс настроек проекта
+    /// Класс настроек проекта
     /// </summary>
     public static class Settings
     {
@@ -163,7 +163,6 @@ namespace SettingsProject
         /// <param name="path">Путь к файлу</param>
         static private void loadSetting(string path)
         {
-            var dsds = 1;
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
                 var settingJson = JsonSerializer.Deserialize<SettingJson>(fs);
