@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\server\\telegrambot\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|solutionrelative:server\\telegrambot\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{767FB5B7-D65A-4754-A36E-6611CA9509F3}|DataBaseTelegramBot\\DataBaseTelegramBot.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\databasetelegrambot\\connectionandrequest\\helpconnectionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767FB5B7-D65A-4754-A36E-6611CA9509F3}|DataBaseTelegramBot\\DataBaseTelegramBot.csproj|solutionrelative:databasetelegrambot\\connectionandrequest\\helpconnectionbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767FB5B7-D65A-4754-A36E-6611CA9509F3}|DataBaseTelegramBot\\DataBaseTelegramBot.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\databasetelegrambot\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767FB5B7-D65A-4754-A36E-6611CA9509F3}|DataBaseTelegramBot\\DataBaseTelegramBot.csproj|solutionrelative:databasetelegrambot\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\server\\telegrambot\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F587D9CB-45FA-4589-947D-6CC392F649CA}|Server\\Server.csproj|solutionrelative:server\\telegrambot\\telegram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7178A040-0C12-43C7-BA3C-C9D95AA78D78}|Settings\\Settings.csproj|c:\\github\\c_sharp__developer_basic\\finalprojects\\telegrambotmosbir\\settings\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,12 +43,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HelpConnectionBD.cs",
+              "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\DataBaseTelegramBot\\ConnectionAndRequest\\HelpConnectionBD.cs",
+              "RelativeDocumentMoniker": "DataBaseTelegramBot\\ConnectionAndRequest\\HelpConnectionBD.cs",
+              "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\DataBaseTelegramBot\\ConnectionAndRequest\\HelpConnectionBD.cs",
+              "RelativeToolTip": "DataBaseTelegramBot\\ConnectionAndRequest\\HelpConnectionBD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T13:10:33.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Telegram.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Server\\TelegramBot\\Telegram.cs",
               "RelativeDocumentMoniker": "Server\\TelegramBot\\Telegram.cs",
               "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Server\\TelegramBot\\Telegram.cs",
               "RelativeToolTip": "Server\\TelegramBot\\Telegram.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMoAAABOAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMoAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T19:04:35.22Z",
               "EditorCaption": ""
@@ -57,14 +74,14 @@
               "RelativeDocumentMoniker": "DataBaseTelegramBot\\DataBase.cs",
               "ToolTip": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\DataBaseTelegramBot\\DataBase.cs",
               "RelativeToolTip": "DataBaseTelegramBot\\DataBase.cs",
-              "ViewState": "AQIAAJ4AAAAAAAAAAAAnwKIAAAAMAAAA",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAnwKIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T19:03:20.937Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ParserXML.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\ParsingMoscowExchange\\Parsing\\ParserXML.cs",
               "RelativeDocumentMoniker": "ParsingMoscowExchange\\Parsing\\ParserXML.cs",
@@ -76,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Settings.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Settings\\Settings.cs",
               "RelativeDocumentMoniker": "Settings\\Settings.cs",
@@ -88,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Menu.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Main\\Menu.cs",
               "RelativeDocumentMoniker": "Main\\Menu.cs",
@@ -100,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Main\\Program.cs",
               "RelativeDocumentMoniker": "Main\\Program.cs",

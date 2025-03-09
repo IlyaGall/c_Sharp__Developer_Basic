@@ -1,0 +1,41 @@
+# Общие правила для всех проектов
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+# Результаты сборки
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
+# NuGet пакеты
+packages/
+*.nupkg
+*.snupkg
+*.nuspec
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Логи
+*.log
+
+# Временные файлы
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Другие файлы
+*.db
+*.pdb
+*.mdb

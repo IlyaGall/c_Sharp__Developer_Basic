@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ot26QHSGl6w=",
+  "dgSpecHash": "0F1yGPSJrww=",
   "success": true,
   "projectFilePath": "C:\\gitHub\\c_Sharp__Developer_Basic\\FinalProjects\\TelegramBotMosbir\\Analytics\\Analytics.csproj",
   "expectedPackageFiles": [
@@ -10,12 +10,5 @@
     "C:\\Users\\Ilya\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.8\\skiasharp.nativeassets.macos.2.88.8.nupkg.sha512",
     "C:\\Users\\Ilya\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.8\\skiasharp.nativeassets.win32.2.88.8.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Произошла ошибка при получении данных уязвимости пакета: Не удалось загрузить индекс службы для источника https://nuget.voids.site/v3/index.json."
-    }
-  ]
+  "logs": []
 }
